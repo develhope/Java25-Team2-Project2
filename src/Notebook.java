@@ -1,20 +1,21 @@
-public class Notebook extends Articolo {
+public class Notebook {
+
     private String tipo;
     private String produttore;
     private String modello;
     private String descrizioneDispositivo;
-    private String dimensione;
+    private String dimensioneDisplay;
     private String spazioArchivio;
     private String prezzoAquisto;
     private String prezzoVendita;
     private String idDispositivo;
 
-    public Notebook (String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensione, String spazioArchivio, String prezzoAquisto, String prezzoVendita, String idDispositivo) {
+    public Notebook (String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String spazioArchivio, String prezzoAquisto, String prezzoVendita, String idDispositivo) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
         this.descrizioneDispositivo = descrizioneDispositivo;
-        this.dimensione = dimensione;
+        this.dimensioneDisplay = dimensioneDisplay;
         this.spazioArchivio = spazioArchivio;
         this.prezzoAquisto = prezzoAquisto;
         this.prezzoVendita = prezzoVendita;
@@ -37,8 +38,8 @@ public class Notebook extends Articolo {
         return descrizioneDispositivo;
     }
 
-    public String getDimensione() {
-        return dimensione;
+    public String getDimensioneDisplay() {
+        return dimensioneDisplay;
     }
 
     public String getSpazioArchivio() {
@@ -73,8 +74,8 @@ public class Notebook extends Articolo {
         this.descrizioneDispositivo = descrizioneDispositivo;
     }
 
-    public void setDimensione(String dimensione) {
-        this.dimensione = dimensione;
+    public void setDimensioneDisplay(String dimensioneDisplay) {
+        this.dimensioneDisplay = dimensioneDisplay;
     }
 
     public void setSpazioArchivio(String spazioArchivio) {
@@ -95,12 +96,12 @@ public class Notebook extends Articolo {
 
     @Override
     public String toString() {
-        return "Smartphone{" +
+        return "Notebook    {" +
                 "tipo='" + tipo + '\'' +
                 ", produttore = '" + produttore + '\'' +
                 ", modello = '" + modello + '\'' +
                 ", descrizioneFacoltativa = '" + descrizioneDispositivo + '\'' +
-                ", dimensioneDisplay = '" + dimensione + '\'' +
+                ", dimensioneDisplay = '" + dimensioneDisplay + '\'' +
                 ", dimensioneSpazioArchiviazione = '" + spazioArchivio + '\'' +
                 ", prezzoAcquisto = '" + prezzoAquisto + '\'' +
                 ", prezzoVendita = '" + prezzoVendita + '\'' +

@@ -1,4 +1,5 @@
-public class Smartphone extends Articolo {
+public class Smartphone {
+
     private String tipo;
     private String produttore;
     private String modello;
@@ -95,7 +96,7 @@ public class Smartphone extends Articolo {
 
     @Override
     public String toString() {
-        return "Smartphone{" +
+        return "Smartphone  {" +
                 "tipo='" + tipo + '\'' +
                 ", produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
