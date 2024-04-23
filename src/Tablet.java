@@ -1,41 +1,42 @@
 // Definizione dei Tablet
 
 public class Tablet {
+
     private String modello;
     private String marca;
-    private double prezzoAcquisto;
-    private double prezzoVendita;
-    private double prezzoAcquistoIVA;
-    private double prezzoVenditaIVA;
-    private int quantitaDisponibile;
+    private String prezzoAcquisto;
+    private String prezzoVendita;
+    private String prezzoAcquistoIVA;
+    private String prezzoVenditaIVA;
+    private String quantitaDisponibile;
     private String dimensioneDisplay;
     private String spazioArchiviazione;
-    private int id;
+    private String id;
     private String descrizione;
 
     // Costruttori
     public Tablet() {
         this.modello = "Selezionabile";
         this.marca = "Selezionabile";
-        this.prezzoAcquisto = 0.0;
-        this.prezzoVendita = 0.0;
-        this.prezzoAcquistoIVA = 0.0;
-        this.prezzoVenditaIVA = 0.0;
-        this.quantitaDisponibile = 0;
+        this.prezzoAcquisto = "0.0";
+        this.prezzoVendita = "0.0";
+        this.prezzoAcquistoIVA = "0.0";
+        this.prezzoVenditaIVA = "0.0";
+        this.quantitaDisponibile = "0";
         this.dimensioneDisplay = "indefinito";
         this.spazioArchiviazione = "indefinito";
-        this.id = -1;
+        this.id = "1";
         this.descrizione = "";
     }
 
-    public Tablet(String modello, String marca, double prezzoAcquisto, double prezzoVendita, int quantitaDisponibile,
-                  String dimensioneDisplay, String spazioArchiviazione, int id, String descrizione) {
+    public Tablet(String modello, String marca, String prezzoAcquisto, String prezzoVendita, String quantitaDisponibile,
+                  String dimensioneDisplay, String spazioArchiviazione, String id, String descrizione) {
         this.modello = modello;
         this.marca = marca;
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
-        this.prezzoAcquistoIVA = prezzoAcquisto * 1.22; // 22% di IVA
-        this.prezzoVenditaIVA = prezzoVendita * 1.22; // 22% di IVA
+        this.prezzoAcquistoIVA = prezzoAcquisto; // 22% di IVA
+        this.prezzoVenditaIVA = prezzoVendita; // 22% di IVA
         this.quantitaDisponibile = quantitaDisponibile;
         this.dimensioneDisplay = dimensioneDisplay;
         this.spazioArchiviazione = spazioArchiviazione;
@@ -60,35 +61,35 @@ public class Tablet {
         this.marca = marca;
     }
 
-    public double getPrezzoAcquisto() {
+    public String getPrezzoAcquisto() {
         return prezzoAcquisto;
     }
 
-    public void setPrezzoAcquisto(double prezzoAcquisto) {
+    public void setPrezzoAcquisto(String prezzoAcquisto) {
         this.prezzoAcquisto = prezzoAcquisto;
     }
 
-    public double getPrezzoVendita() {
+    public String getPrezzoVendita() {
         return prezzoVendita;
     }
 
-    public void setPrezzoVendita(double prezzoVendita) {
+    public void setPrezzoVendita(String prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
 
-    public double getPrezzoAcquistoIVA() {
+    public String getPrezzoAcquistoIVA() {
         return prezzoAcquistoIVA;
     }
 
-    public double getPrezzoVenditaIVA() {
+    public String getPrezzoVenditaIVA() {
         return prezzoVenditaIVA;
     }
 
-    public int getQuantitaDisponibile() {
+    public String getQuantitaDisponibile() {
         return quantitaDisponibile;
     }
 
-    public void setQuantitaDisponibile(int quantitaDisponibile) {
+    public void setQuantitaDisponibile(String quantitaDisponibile) {
         this.quantitaDisponibile = quantitaDisponibile;
     }
 
@@ -108,11 +109,11 @@ public class Tablet {
         this.spazioArchiviazione = spazioArchiviazione;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -124,26 +125,21 @@ public class Tablet {
         this.descrizione = descrizione;
     }
 
-
-    // Varie stampe del caso
-    public void stampaInfo() {
-        System.out.println("Modello: " + modello);
-        System.out.println("Marca: " + marca);
-        System.out.println("Prezzo di acquisto (IVA inclusa): " + prezzoAcquistoIVA + " euro");
-        System.out.println("Prezzo di vendita (IVA inclusa): " + prezzoVenditaIVA + " euro");
-        System.out.println("Quantità disponibile: " + quantitaDisponibile);
-        System.out.println("Dimensione display: " + dimensioneDisplay);
-        System.out.println("Spazio di archiviazione: " + spazioArchiviazione);
-        System.out.println("ID: " + id);
-        System.out.println("Descrizione: " + descrizione);
-    }
-
-    public void vendiTablet(int quantitaVenduta) {
-        if (quantitaVenduta <= quantitaDisponibile) {
-            quantitaDisponibile -= quantitaVenduta;
-            System.out.println("Vendita effettuata. Modelli rimanenti: " + quantitaDisponibile);
-        } else {
-            System.out.println("Modello non disponibile.");
-        }
+    @Override
+    public String toString() {
+        return "Tablet      {" +
+                "modello='" + modello + '\'' +
+                ", marca='" + marca + '\'' +
+                ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
+                ", prezzoVendita='" + prezzoVendita + '\'' +
+                ", prezzoAcquistoIVA='" + prezzoAcquistoIVA + '\'' +
+                ", prezzoVenditaIVA='" + prezzoVenditaIVA + '\'' +
+                ", quantitaDisponibile='" + quantitaDisponibile + '\'' +
+                ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
+                ", spazioArchiviazione='" + spazioArchiviazione + '\'' +
+                ", id='" + id + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                '}';
     }
 }
+
