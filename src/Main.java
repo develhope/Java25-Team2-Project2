@@ -4,31 +4,35 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
+            int scelta;
 
-        System.out.println("Selezionare operazione:");
-        System.out.println("1 - Accesso al magazzino");
-        int scelta = scanner.nextInt();
+        do {
+            System.out.println("Selezionare operazione:");
+            System.out.println("1 - Accesso al magazzino");
+            System.out.println("2 - Prodotti disponibili");
+            System.out.println("4 - Uscita");
+            scelta = scanner.nextInt();
 
-        switch (scelta) {
-            case 1:
-                System.out.println("Accesso al magazzino" + "\n");
-                Magazzino artDisp = new Magazzino();
-                artDisp.disponibili();
-                break;
-            case 2:
-                System.out.println("Accesso al carrello");
-                break;
-            case 3:
-                System.out.println("Fai qualcosa");
-                break;
-            case 4:
-                System.out.println("Fai un'altra cosa");
-                break;
-            default:
-                System.out.println("Scelta non valida");
-        }
-
+            switch (scelta) {
+                case 1:
+                    System.out.println("Accesso al magazzino" + "\n");
+                    Magazzino tipiDiProdotto = new Magazzino();
+                    tipiDiProdotto.disponibili();
+                    break;
+                case 2:
+                    System.out.println("Prodotti da visualizzare");
+                    break;
+                case 3:
+                    System.out.println("Fai una cosa");
+                    break;
+                case 4:
+                    System.out.println("Uscita in corso");
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while (scelta != 4);
         scanner.close();
     }
 }

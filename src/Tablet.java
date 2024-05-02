@@ -1,50 +1,44 @@
-// Definizione dei Tablet
+public class Tablet implements ArticoliElettronici{
 
-public class Tablet {
-
+    private String tipo;
+    private String produttore;
     private String modello;
-    private String marca;
+    private String descrizioneDispositivo;
+    private String dimensioneDisplay;
+    private String dimensioneSpazioArchiviazione;
     private String prezzoAcquisto;
     private String prezzoVendita;
-    private String prezzoAcquistoIVA;
-    private String prezzoVenditaIVA;
-    private String quantitaDisponibile;
-    private String dimensioneDisplay;
-    private String spazioArchiviazione;
-    private String id;
-    private String descrizione;
+    private String idDispositivo;
 
-    // Costruttori
-    public Tablet() {
-        this.modello = "Selezionabile";
-        this.marca = "Selezionabile";
-        this.prezzoAcquisto = "0.0";
-        this.prezzoVendita = "0.0";
-        this.prezzoAcquistoIVA = "0.0";
-        this.prezzoVenditaIVA = "0.0";
-        this.quantitaDisponibile = "0";
-        this.dimensioneDisplay = "indefinito";
-        this.spazioArchiviazione = "indefinito";
-        this.id = "1";
-        this.descrizione = "";
-    }
-
-    public Tablet(String modello, String marca, String prezzoAcquisto, String prezzoVendita, String quantitaDisponibile,
-                  String dimensioneDisplay, String spazioArchiviazione, String id, String descrizione) {
+    public Tablet(String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo) {
+        this.tipo = tipo;
+        this.produttore = produttore;
         this.modello = modello;
-        this.marca = marca;
+        this.descrizioneDispositivo = descrizioneDispositivo;
+        this.dimensioneDisplay = dimensioneDisplay;
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
-        this.prezzoAcquistoIVA = prezzoAcquisto; // 22% di IVA
-        this.prezzoVenditaIVA = prezzoVendita; // 22% di IVA
-        this.quantitaDisponibile = quantitaDisponibile;
-        this.dimensioneDisplay = dimensioneDisplay;
-        this.spazioArchiviazione = spazioArchiviazione;
-        this.id = id;
-        this.descrizione = descrizione;
+        this.idDispositivo = idDispositivo;
     }
 
-    // Getter e Setter
+    @Override
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getProduttore() {
+        return produttore;
+    }
+
+    public void setProduttore(String produttore) {
+        this.produttore = produttore;
+    }
+
     public String getModello() {
         return modello;
     }
@@ -53,12 +47,28 @@ public class Tablet {
         this.modello = modello;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getDescrizioneDispositivo() {
+        return descrizioneDispositivo;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setDescrizioneDispositivo(String descrizioneDispositivo) {
+        this.descrizioneDispositivo = descrizioneDispositivo;
+    }
+
+    public String getDimensioneDisplay() {
+        return dimensioneDisplay;
+    }
+
+    public void setDimensioneDisplay(String dimensioneDisplay) {
+        this.dimensioneDisplay = dimensioneDisplay;
+    }
+
+    public String getDimensioneSpazioArchiviazione() {
+        return dimensioneSpazioArchiviazione;
+    }
+
+    public void setDimensioneSpazioArchiviazione(String dimensioneSpazioArchiviazione) {
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
 
     public String getPrezzoAcquisto() {
@@ -77,69 +87,26 @@ public class Tablet {
         this.prezzoVendita = prezzoVendita;
     }
 
-    public String getPrezzoAcquistoIVA() {
-        return prezzoAcquistoIVA;
+    public String getIdDispositivo() {
+        return idDispositivo;
     }
 
-    public String getPrezzoVenditaIVA() {
-        return prezzoVenditaIVA;
-    }
-
-    public String getQuantitaDisponibile() {
-        return quantitaDisponibile;
-    }
-
-    public void setQuantitaDisponibile(String quantitaDisponibile) {
-        this.quantitaDisponibile = quantitaDisponibile;
-    }
-
-    public String getDimensioneDisplay() {
-        return dimensioneDisplay;
-    }
-
-    public void setDimensioneDisplay(String dimensioneDisplay) {
-        this.dimensioneDisplay = dimensioneDisplay;
-    }
-
-    public String getSpazioArchiviazione() {
-        return spazioArchiviazione;
-    }
-
-    public void setSpazioArchiviazione(String spazioArchiviazione) {
-        this.spazioArchiviazione = spazioArchiviazione;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
+    public void setIdDispositivo(String idDispositivo) {
+        this.idDispositivo = idDispositivo;
     }
 
     @Override
     public String toString() {
-        return "Tablet      {" +
-                "modello='" + modello + '\'' +
-                ", marca='" + marca + '\'' +
+        return "Tablet{" +
+                "tipo='" + tipo + '\'' +
+                ", produttore='" + produttore + '\'' +
+                ", modello='" + modello + '\'' +
+                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
+                ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
+                ", dimensioneSpazioArchiviazione='" + dimensioneSpazioArchiviazione + '\'' +
                 ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
                 ", prezzoVendita='" + prezzoVendita + '\'' +
-                ", prezzoAcquistoIVA='" + prezzoAcquistoIVA + '\'' +
-                ", prezzoVenditaIVA='" + prezzoVenditaIVA + '\'' +
-                ", quantitaDisponibile='" + quantitaDisponibile + '\'' +
-                ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
-                ", spazioArchiviazione='" + spazioArchiviazione + '\'' +
-                ", id='" + id + '\'' +
-                ", descrizione='" + descrizione + '\'' +
+                ", idDispositivo='" + idDispositivo + '\'' +
                 '}';
     }
 }
-
