@@ -3,23 +3,23 @@ public class Smartphone {
     private String tipo;
     private String produttore;
     private String modello;
-    private String descrizioneFacoltativa;
+    private String descrizioneDispositivo;
     private String dimensioneDisplay;
     private String dimensioneSpazioArchiviazione;
     private String prezzoAcquisto;
     private String prezzoVendita;
-    private String id;
+    private String idDispositivo;
 
-    public Smartphone(String tipo, String produttore, String modello, String descrizioneFacoltativa, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String id) {
+    public Smartphone(String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
-        this.descrizioneFacoltativa = descrizioneFacoltativa;
+        this.descrizioneDispositivo = descrizioneDispositivo;
         this.dimensioneDisplay = dimensioneDisplay;
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
-        this.id = id;
+        this.idDispositivo = idDispositivo;
     }
 
     public String getTipo() {
@@ -46,12 +46,12 @@ public class Smartphone {
         this.modello = modello;
     }
 
-    public String getDescrizioneFacoltativa() {
-        return descrizioneFacoltativa;
+    public String getdescrizioneDispositivo() {
+        return descrizioneDispositivo;
     }
 
-    public void setDescrizioneFacoltativa(String descrizioneFacoltativa) {
-        this.descrizioneFacoltativa = descrizioneFacoltativa;
+    public void setdescrizioneDispositivo(String descrizioneDispositivo) {
+        this.descrizioneDispositivo = descrizioneDispositivo;
     }
 
     public String getDimensioneDisplay() {
@@ -86,12 +86,12 @@ public class Smartphone {
         this.prezzoVendita = prezzoVendita;
     }
 
-    public String getId() {
-        return id;
+    public String getIdDispositivo() {
+        return idDispositivo;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdDispositivo(String idDispositivo) {
+        this.idDispositivo = idDispositivo;
     }
 
     @Override
@@ -100,12 +100,12 @@ public class Smartphone {
                 "tipo='" + tipo + '\'' +
                 ", produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
-                ", descrizioneFacoltativa='" + descrizioneFacoltativa + '\'' +
+                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
                 ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
                 ", dimensioneSpazioArchiviazione='" + dimensioneSpazioArchiviazione + '\'' +
                 ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
                 ", prezzoVendita='" + prezzoVendita + '\'' +
-                ", id='" + id + '\'' +
+                ", idDispositivo='" + idDispositivo + '\'' +
                 '}';
     }
 }
