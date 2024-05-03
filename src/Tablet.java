@@ -2,42 +2,44 @@
 
 public class Tablet {
 
-    private String modello;
-    private String produttore;
-    private String prezzoAcquisto;
-    private String prezzoVendita;
     private String tipo;
+    private String produttore;
+    private String modello;
+    private String descrizioneDispositivo;
     private String dimensioneDisplay;
     private String dimensioneSpazioArchiviazione;
+    private String prezzoAcquisto;
+    private String prezzoVendita;
     private String idDispositivo;
-    private String descrizioneDispositivo;
 
-    // Costruttori
-    public Tablet() {
-        this.modello = "Selezionabile";
-        this.produttore = "Selezionabile";
-        this.prezzoAcquisto = "0.0";
-        this.prezzoVendita = "0.0";
-        this.tipo = "Selezionabile";
-        this.dimensioneDisplay = "indefinito";
-        this.dimensioneSpazioArchiviazione = "indefinito";
-        this.idDispositivo = "1";
-        this.descrizioneDispositivo = "";
-    }
-
-    public Tablet(String modello, String produttore, String prezzoAcquisto, String prezzoVendita, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String idDispositivo, String descrizione) {
-        this.modello = modello;
-        this.produttore = produttore;
-        this.prezzoAcquisto = prezzoAcquisto;
-        this.prezzoVendita = prezzoVendita;
+    public Tablet(String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo) {
         this.tipo = tipo;
+        this.produttore = produttore;
+        this.modello = modello;
+        this.descrizioneDispositivo = descrizioneDispositivo;
         this.dimensioneDisplay = dimensioneDisplay;
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
+        this.prezzoAcquisto = prezzoAcquisto;
+        this.prezzoVendita = prezzoVendita;
         this.idDispositivo = idDispositivo;
-        this.descrizioneDispositivo = descrizioneDispositivo;
     }
 
-    // Getter e Setter
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getProduttore() {
+        return produttore;
+    }
+
+    public void setProduttore(String produttore) {
+        this.produttore = produttore;
+    }
+
     public String getModello() {
         return modello;
     }
@@ -46,12 +48,28 @@ public class Tablet {
         this.modello = modello;
     }
 
-    public String getproduttore() {
-        return produttore;
+    public String getdescrizioneDispositivo() {
+        return descrizioneDispositivo;
     }
 
-    public void setproduttore(String produttore) {
-        this.produttore = produttore;
+    public void setdescrizioneDispositivo(String descrizioneDispositivo) {
+        this.descrizioneDispositivo = descrizioneDispositivo;
+    }
+
+    public String getDimensioneDisplay() {
+        return dimensioneDisplay;
+    }
+
+    public void setDimensioneDisplay(String dimensioneDisplay) {
+        this.dimensioneDisplay = dimensioneDisplay;
+    }
+
+    public String getDimensioneSpazioArchiviazione() {
+        return dimensioneSpazioArchiviazione;
+    }
+
+    public void setDimensioneSpazioArchiviazione(String dimensioneSpazioArchiviazione) {
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
 
     public String getPrezzoAcquisto() {
@@ -70,57 +88,26 @@ public class Tablet {
         this.prezzoVendita = prezzoVendita;
     }
 
-    public String tipo() {
-        return tipo;
-    }
-
-
-
-    public String getDimensioneDisplay() {
-        return dimensioneDisplay;
-    }
-
-    public void setDimensioneDisplay(String dimensioneDisplay) {
-        this.dimensioneDisplay = dimensioneDisplay;
-    }
-
-    public String getdimensioneSpazioArchiviazione() {
-        return dimensioneSpazioArchiviazione;
-    }
-
-    public void setdimensioneSpazioArchiviazione(String dimensioneSpazioArchiviazione) {
-        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
-    }
-
-    public String getidDispositivo() {
+    public String getIdDispositivo() {
         return idDispositivo;
     }
 
-    public void setidDispositivo(String idDispositivo) {
-        this.id = id;
-    }
-
-    public String getdescrizioneDispositivo() {
-        return descrizioneDispositivo;
-    }
-
-    public void setdescrizioneDispositivo(String descrizioneDispositivo) {
-        this.descrizioneDispositivo = descrizioneDispositivo;
+    public void setIdDispositivo(String idDispositivo) {
+        this.idDispositivo = idDispositivo;
     }
 
     @Override
     public String toString() {
-        return "Tablet      {" +
-                "modello='" + modello + '\'' +
+        return "Tablet  {" +
+                "tipo='" + tipo + '\'' +
                 ", produttore='" + produttore + '\'' +
-                ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
-                ", prezzoVendita='" + prezzoVendita + '\'' +
-                ", tipo='" + tipo + '\'' +
+                ", modello='" + modello + '\'' +
+                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
                 ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
                 ", dimensioneSpazioArchiviazione='" + dimensioneSpazioArchiviazione + '\'' +
+                ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
+                ", prezzoVendita='" + prezzoVendita + '\'' +
                 ", idDispositivo='" + idDispositivo + '\'' +
-                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
                 '}';
     }
 }
-
