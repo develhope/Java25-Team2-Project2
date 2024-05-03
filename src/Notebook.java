@@ -5,19 +5,19 @@ public class Notebook {
     private String modello;
     private String descrizioneDispositivo;
     private String dimensioneDisplay;
-    private String spazioArchivio;
-    private String prezzoAquisto;
+    private String dimensioneSpazioArchiviazione;
+    private String prezzoAcquisto;
     private String prezzoVendita;
     private String idDispositivo;
 
-    public Notebook (String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String spazioArchivio, String prezzoAquisto, String prezzoVendita, String idDispositivo) {
+    public Notebook (String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
         this.descrizioneDispositivo = descrizioneDispositivo;
         this.dimensioneDisplay = dimensioneDisplay;
-        this.spazioArchivio = spazioArchivio;
-        this.prezzoAquisto = prezzoAquisto;
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
+        this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
         this.idDispositivo = idDispositivo;
     }
@@ -42,12 +42,12 @@ public class Notebook {
         return dimensioneDisplay;
     }
 
-    public String getSpazioArchivio() {
-        return spazioArchivio;
+    public String getdimensioneSpazioArchiviazione() {
+        return dimensioneSpazioArchiviazione;
     }
 
-    public String getPrezzoAquisto() {
-        return prezzoAquisto;
+    public String getPrezzoAcquisto() {
+        return prezzoAcquisto;
     }
 
     public String getPrezzoVendita() {
@@ -78,12 +78,12 @@ public class Notebook {
         this.dimensioneDisplay = dimensioneDisplay;
     }
 
-    public void setSpazioArchivio(String spazioArchivio) {
-        this.spazioArchivio = spazioArchivio;
+    public void setdimensioneSpazioArchiviazione(String dimensioneSpazioArchiviazione) {
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
 
-    public void setPrezzoAquisto(String prezzoAquisto) {
-        this.prezzoAquisto = prezzoAquisto;
+    public void setPrezzoAcquisto(String prezzoAquisto) {
+        this.prezzoAcquisto = prezzoAquisto;
     }
 
     public void setPrezzoVendita(String prezzoVendita) {
@@ -102,8 +102,8 @@ public class Notebook {
                 ", modello = '" + modello + '\'' +
                 ", descrizioneFacoltativa = '" + descrizioneDispositivo + '\'' +
                 ", dimensioneDisplay = '" + dimensioneDisplay + '\'' +
-                ", dimensioneSpazioArchiviazione = '" + spazioArchivio + '\'' +
-                ", prezzoAcquisto = '" + prezzoAquisto + '\'' +
+                ", dimensioneSpazioArchiviazione = '" + dimensioneSpazioArchiviazione + '\'' +
+                ", prezzoAcquisto = '" + prezzoAcquisto + '\'' +
                 ", prezzoVendita = '" + prezzoVendita + '\'' +
                 ", id = '" + idDispositivo + '\'' +
                 '}';
