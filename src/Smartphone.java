@@ -1,4 +1,4 @@
-public class Smartphone implements ArticoliElettronici {
+public class Smartphone {
 
     private String tipo;
     private String produttore;
@@ -22,7 +22,6 @@ public class Smartphone implements ArticoliElettronici {
         this.idDispositivo = idDispositivo;
     }
 
-    @Override
     public String getTipo() {
         return tipo;
     }
@@ -39,20 +38,20 @@ public class Smartphone implements ArticoliElettronici {
         this.produttore = produttore;
     }
 
-    public String getDescrizioneDispositivo() {
-        return descrizioneDispositivo;
-    }
-
-    public void setDescrizioneDispotivo(String descrizioneDispotivo) {
-        this.descrizioneDispositivo = descrizioneDispotivo;
-    }
-
     public String getModello() {
         return modello;
     }
 
     public void setModello(String modello) {
         this.modello = modello;
+    }
+
+    public String getdescrizioneDispositivo() {
+        return descrizioneDispositivo;
+    }
+
+    public void setdescrizioneDispositivo(String descrizioneDispositivo) {
+        this.descrizioneDispositivo = descrizioneDispositivo;
     }
 
     public String getDimensioneDisplay() {
