@@ -1,6 +1,6 @@
 // Definizione dei Tablet
 
-public class Tablet {
+public class Tablet  {
 
     private String modello;
     private String marca;
