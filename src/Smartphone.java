@@ -1,16 +1,17 @@
-public class Smartphone {
+public class Smartphone extends Articoli {
 
-    private String tipo;
+    private Tipo tipo;
     private String produttore;
     private String modello;
     private String descrizioneDispositivo;
     private String dimensioneDisplay;
     private String dimensioneSpazioArchiviazione;
     private String prezzoAcquisto;
-    private String prezzoVendita;
+    private Double prezzoVendita;
     private String idDispositivo;
 
-    public Smartphone(String tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo) {
+    public Smartphone(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, Double prezzoVendita, String idDispositivo) {
+        super();
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
@@ -22,11 +23,11 @@ public class Smartphone {
         this.idDispositivo = idDispositivo;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
@@ -78,11 +79,11 @@ public class Smartphone {
         this.prezzoAcquisto = prezzoAcquisto;
     }
 
-    public String getPrezzoVendita() {
+    public Double getPrezzoVendita() {
         return prezzoVendita;
     }
 
-    public void setPrezzoVendita(String prezzoVendita) {
+    public void setPrezzoVendita(Double prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
 
@@ -106,7 +107,7 @@ public class Smartphone {
                 ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
                 ", prezzoVendita='" + prezzoVendita + '\'' +
                 ", idDispositivo='" + idDispositivo + '\'' +
-                '}';
+                "}";
     }
 }
 
