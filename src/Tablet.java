@@ -1,3 +1,4 @@
+
 public class Tablet extends Articoli {
 
     private Tipo tipo;

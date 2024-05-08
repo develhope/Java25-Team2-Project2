@@ -11,6 +11,7 @@ public class Notebook extends Articoli {
     private String idDispositivo;
 
     public Notebook(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, Double prezzoVendita, String idDispositivo) {
+
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
@@ -48,6 +49,7 @@ public class Notebook extends Articoli {
 
     public String getDescrizioneDispositivo() {
         return descrizioneDispositivo;
+
     }
 
     public void setDescrizioneDispositivo(String descrizioneDispositivo) {
@@ -84,6 +86,7 @@ public class Notebook extends Articoli {
 
     public void setPrezzoVendita(Double prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
+
     }
 
     public String getIdDispositivo() {
