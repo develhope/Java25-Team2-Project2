@@ -15,22 +15,33 @@ public class Main {
             System.out.println("Selezionare operazione:");
             System.out.println("0 - Uscita");
             System.out.println("1 - Accesso al magazzino");
-            System.out.println("2 - Prodotti disponibili");
+            System.out.println("2 - Ricerca");
             System.out.println("3 - Accesso al carrello");
+
             scelta = scanner.nextInt();
+            System.out.println(" ");
 
             switch (scelta) {
                 case 0:
                     System.out.println("Uscita in corso");
+                    System.out.println();
                     break;
                 case 1:
-                    System.out.println(tipiDiProdotto.disponibili());
+                    System.out.println("Dispositivi presenti nel magazzino:");
+                    for (int i = 0; i < tipiDiProdotto.disponibili().size(); i++) {
+                        System.out.println((i + 1) + ". " + tipiDiProdotto.disponibili().get(i));
+                    }
+                    System.out.println();
                     break;
                 case 2:
-                    System.out.println("ricerca per modello");
+                    System.out.println("Criterio di ricerca:");
+                    System.out.println();
+                    MetodiRicerca.metodiDiRicerca();
+                    System.out.println();
                     break;
                 case 3:
                     menu.creazioneCarrello();
+                    System.out.println();
                     break;
                 default:
                     System.out.println("Scelta non valida");
