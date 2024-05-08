@@ -45,9 +45,10 @@ do {
             System.out.println("Elenco articoli nel carrello:");
             carrello.visualizzaCarrello();
             System.out.println("Cosa vuoi rimuovere?");
-            int indiceRimozione = scanner.nextInt();
-            if(indiceRimozione > 0 && indiceRimozione <= carrello.visualizzaCarrello().size()) {
-                carrello.rimuoviProdotto(carrello.visualizzaCarrello().get(indiceRimozione - 1));
+            //int indiceRimozione = scanner.nextInt();
+            String modelloDaRimuovere = scanner.nextLine();
+            if (carrello.articoli.equals(modelloDaRimuovere)) {
+                carrello.rimuoviProdotto(modelloDaRimuovere);
                 System.out.println("Dispositivo rimosso dal carrello.");
             } else {
                 System.out.println("Selezione non valida.");

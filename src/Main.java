@@ -4,31 +4,49 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+            Menu menu = new Menu();
+            Magazzino tipiDiProdotto = new Magazzino();
+            //Carrello carrello = new Carrello();
+            Scanner scanner = new Scanner(System.in);
+            int scelta;
 
-        System.out.println("Selezionare operazione:");
-        System.out.println("1 - Accesso al magazzino");
-        int scelta = scanner.nextInt();
+        do {
 
-        switch (scelta) {
-            case 1:
-                System.out.println("Accesso al magazzino" + "\n");
-                Magazzino artDisp = new Magazzino();
-                artDisp.disponibili();
-                break;
-            case 2:
-                System.out.println("Accesso al carrello");
-                break;
-            case 3:
-                System.out.println("Fai qualcosa");
-                break;
-            case 4:
-                System.out.println("Fai un'altra cosa");
-                break;
-            default:
-                System.out.println("Scelta non valida");
-        }
+            System.out.println("Selezionare operazione:");
+            System.out.println("0 - Uscita");
+            System.out.println("1 - Accesso al magazzino");
+            System.out.println("2 - Ricerca");
+            System.out.println("3 - Accesso al carrello");
 
+            scelta = scanner.nextInt();
+            System.out.println(" ");
+
+            switch (scelta) {
+                case 0:
+                    System.out.println("Uscita in corso");
+                    System.out.println();
+                    break;
+                case 1:
+                    System.out.println("Dispositivi presenti nel magazzino:");
+                    for (int i = 0; i < tipiDiProdotto.disponibili().size(); i++) {
+                        System.out.println((i + 1) + ". " + tipiDiProdotto.disponibili().get(i));
+                    }
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println("Criterio di ricerca:");
+                    System.out.println();
+                    MetodiRicerca.metodiDiRicerca();
+                    System.out.println();
+                    break;
+                case 3:
+                    menu.creazioneCarrello();
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while (scelta != 0);
         scanner.close();
     }
 }
