@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -7,6 +8,7 @@ public class Menu {
 
     public void creazioneCarrello () {
 
+        ArrayList<Carrello> articoliCarrello = new ArrayList<>();
         Magazzino dispositivi = new Magazzino();
         dispositivi.disponibili();
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +49,7 @@ do {
             System.out.println("Cosa vuoi rimuovere?");
             int indiceRimozione = scanner.nextInt();
             if(indiceRimozione > 0 && indiceRimozione <= carrello.visualizzaCarrello().size()) {
-                carrello.rimuoviProdotto(carrello.visualizzaCarrello().get(indiceRimozione - 1));
+                carrello.rimuoviProdotto(indiceRimozione - 1);
                 System.out.println("Dispositivo rimosso dal carrello.");
             } else {
                 System.out.println("Selezione non valida.");

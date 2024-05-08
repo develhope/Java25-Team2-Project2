@@ -6,7 +6,8 @@ public class Main {
 
             Menu menu = new Menu();
             Magazzino tipiDiProdotto = new Magazzino();
-            //Carrello carrello = new Carrello();
+            Articoli articoli = new Articoli();
+            MetodiRicerca metodiRicerca = new MetodiRicerca();
             Scanner scanner = new Scanner(System.in);
             int scelta;
 
@@ -15,7 +16,7 @@ public class Main {
             System.out.println("Selezionare operazione:");
             System.out.println("0 - Uscita");
             System.out.println("1 - Accesso al magazzino");
-            System.out.println("2 - Prodotti disponibili");
+            System.out.println("2 - Ricerca per modello");
             System.out.println("3 - Accesso al carrello");
             scelta = scanner.nextInt();
 
@@ -24,10 +25,15 @@ public class Main {
                     System.out.println("Uscita in corso");
                     break;
                 case 1:
-                    System.out.println(tipiDiProdotto.disponibili());
+                    for (int i = 0; i < tipiDiProdotto.disponibili().size(); i++) {
+                        System.out.println((i + 1) + ". " + tipiDiProdotto.disponibili().get(i));
+                    }
+                    System.out.println();
                     break;
                 case 2:
-                    System.out.println("ricerca per modello");
+                    System.out.println("Digitare nome modello: ");
+                    metodiRicerca.ricercaModello(articoli);
+                    System.out.println();
                     break;
                 case 3:
                     menu.creazioneCarrello();

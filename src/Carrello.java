@@ -12,8 +12,8 @@ public class Carrello {
         articoli.add(articolo);
     }
 
-    public void rimuoviProdotto (Articoli articolo) {
-        articoli.remove(articolo);
+    public void rimuoviProdotto (int i) {
+        articoli.remove(i);
     }
 
     public ArrayList<Articoli> visualizzaCarrello () {
