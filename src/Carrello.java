@@ -23,18 +23,4 @@ public class Carrello {
         }
         return articoli;
     }
-
-    private double calcolaTotale() {
-        double totale = 0;
-        for (Articoli prodotto : articoli) {
-            totale += prodotto.getPrezzoVendita();
-        }
-        return totale;
-    }
-
-    public void acquista() {
-        double totale = calcolaTotale();
-        System.out.println("Totale dell'acquisto: " + totale + " Euro");
-        articoli.clear(); // Svuota il carrello dopo l'acquisto
-    }
 }
