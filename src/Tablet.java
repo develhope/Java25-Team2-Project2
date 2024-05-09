@@ -1,17 +1,15 @@
+
 public class Tablet extends Articoli {
 
-    private Tipo tipo;
     private String produttore;
-    private String modello;
     private String descrizioneDispositivo;
     private String dimensioneDisplay;
     private String dimensioneSpazioArchiviazione;
     private String prezzoAcquisto;
-    private Double prezzoVendita;
     private String idDispositivo;
 
     public Tablet(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, Double prezzoVendita, String idDispositivo) {
-        super();
+
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
@@ -23,28 +21,12 @@ public class Tablet extends Articoli {
         this.idDispositivo = idDispositivo;
     }
 
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
-    }
-
     public String getProduttore() {
         return produttore;
     }
 
     public void setProduttore(String produttore) {
         this.produttore = produttore;
-    }
-
-    public String getModello() {
-        return modello;
-    }
-
-    public void setModello(String modello) {
-        this.modello = modello;
     }
 
     public String getdescrizioneDispositivo() {
@@ -77,14 +59,6 @@ public class Tablet extends Articoli {
 
     public void setPrezzoAcquisto(String prezzoAcquisto) {
         this.prezzoAcquisto = prezzoAcquisto;
-    }
-
-    public Double getPrezzoVendita() {
-        return prezzoVendita;
-    }
-
-    public void setPrezzoVendita(Double prezzoVendita) {
-        this.prezzoVendita = prezzoVendita;
     }
 
     public String getIdDispositivo() {

@@ -2,19 +2,21 @@ import java.util.ArrayList;
 
 public class Carrello {
 
-    private ArrayList<Articoli> articoli;
+    public ArrayList<Articoli> articoli;
 
     public Carrello () {
         articoli = new ArrayList<>();
     }
 
-    public void aggiungiProdotto (Articoli articolo) {
+    public ArrayList<Articoli> aggiungiProdotto (Articoli articolo) {
         articoli.add(articolo);
+        return articoli;
     }
 
-    public void rimuoviProdotto (int i) {
-        articoli.remove(i);
+    public void rimuoviProdotto (Articoli articolo) {
+        articoli.remove(articolo);
     }
+
 
     public ArrayList<Articoli> visualizzaCarrello () {
         System.out.println("Carrello:");
