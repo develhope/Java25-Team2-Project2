@@ -1,15 +1,16 @@
+public class Tablet implements ArticoliElettronici {
 
-public class Tablet extends Articoli {
-
+    private Tipo tipo;
     private String produttore;
+    private String modello;
     private String descrizioneDispositivo;
-    private String dimensioneDisplay;
-    private String dimensioneSpazioArchiviazione;
-    private String prezzoAcquisto;
-    private String idDispositivo;
+    private Double dimensioneDisplay;
+    private Integer dimensioneSpazioArchiviazione;
+    private Double prezzoAcquisto;
+    private Double prezzoVendita;
+    private Integer idDispositivo;
 
-    public Tablet(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, String dimensioneDisplay, String dimensioneSpazioArchiviazione, String prezzoAcquisto, Double prezzoVendita, String idDispositivo) {
-
+    public Tablet(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione, Double prezzoAcquisto, Double prezzoVendita, Integer idDispositivo) {
         this.tipo = tipo;
         this.produttore = produttore;
         this.modello = modello;
@@ -21,66 +22,56 @@ public class Tablet extends Articoli {
         this.idDispositivo = idDispositivo;
     }
 
-    public String getProduttore() {
+    @Override
+    public Tipo checkTipo() {
+        return tipo;
+    }
+
+    @Override
+    public String checkProduttore() {
         return produttore;
     }
 
-    public void setProduttore(String produttore) {
-        this.produttore = produttore;
+    @Override
+    public String checkModello() {
+        return modello;
     }
 
-    public String getdescrizioneDispositivo() {
-        return descrizioneDispositivo;
-    }
-
-    public void setdescrizioneDispositivo(String descrizioneDispositivo) {
-        this.descrizioneDispositivo = descrizioneDispositivo;
-    }
-
-    public String getDimensioneDisplay() {
+    @Override
+    public Double checkDimensioniDisplay() {
         return dimensioneDisplay;
     }
 
-    public void setDimensioneDisplay(String dimensioneDisplay) {
-        this.dimensioneDisplay = dimensioneDisplay;
-    }
-
-    public String getDimensioneSpazioArchiviazione() {
+    @Override
+    public Integer checkDimensioneSpazioArchiviazione() {
         return dimensioneSpazioArchiviazione;
     }
 
-    public void setDimensioneSpazioArchiviazione(String dimensioneSpazioArchiviazione) {
-        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
-    }
-
-    public String getPrezzoAcquisto() {
+    @Override
+    public Double checkPrezzoAcquisto() {
         return prezzoAcquisto;
     }
 
-    public void setPrezzoAcquisto(String prezzoAcquisto) {
-        this.prezzoAcquisto = prezzoAcquisto;
+    @Override
+    public Double checkPrezzoVendita() {
+        return prezzoVendita;
     }
 
-    public String getIdDispositivo() {
+    @Override
+    public Integer checkID() {
         return idDispositivo;
-    }
-
-    public void setIdDispositivo(String idDispositivo) {
-        this.idDispositivo = idDispositivo;
     }
 
     @Override
     public String toString() {
-        return "Tablet  {" +
-                "tipo='" + tipo + '\'' +
+        return "Dispositivo: " + tipo +
                 ", produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
                 ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
-                ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
-                ", dimensioneSpazioArchiviazione='" + dimensioneSpazioArchiviazione + '\'' +
-                ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
-                ", prezzoVendita='" + prezzoVendita + '\'' +
-                ", idDispositivo='" + idDispositivo + '\'' +
-                '}';
+                ", dimensioneDisplay=" + dimensioneDisplay +
+                ", dimensioneSpazioArchiviazione=" + dimensioneSpazioArchiviazione +
+                ", prezzoAcquisto=" + prezzoAcquisto +
+                ", prezzoVendita=" + prezzoVendita +
+                ", idDispositivo=" + idDispositivo;
     }
 }

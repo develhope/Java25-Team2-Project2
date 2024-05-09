@@ -29,8 +29,8 @@ do {
         case 1:
             System.out.println("Elenco dei dispositivi disponibili:");
             for (int i = 0; i < dispositivi.disponibili().size(); i++) {
-                System.out.println((i + 1) + ". " + dispositivi.disponibili().get(i).getTipo() + " " + dispositivi.disponibili().get(i).getModello() +
-                        " - Prezzo: " + dispositivi.disponibili().get(i).getPrezzoVendita());
+                System.out.println((i + 1) + ". " + dispositivi.disponibili().get(i).checkTipo() + " " + dispositivi.disponibili().get(i).checkModello() +
+                        " - Prezzo: " + dispositivi.disponibili().get(i).checkPrezzoVendita());
             }
             System.out.println("Seleziona il dispositivo da aggiungere:");
             int indiceAggiunzione = scanner.nextInt();
