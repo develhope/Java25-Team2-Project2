@@ -31,7 +31,7 @@ public class MetodiRicerca {
                     System.out.println("Inserire nome produttore");
                     Scanner scanner1 = new Scanner(System.in);
                     String nomeProduttore = scanner1.nextLine();
-                    for (ArticoliElettronici articolo : magazzino.disponibili()) {
+                    for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
                         if (nomeProduttore.equals(articolo.checkProduttore())) {
                             System.out.println(articolo);
                         }
@@ -41,7 +41,7 @@ public class MetodiRicerca {
                     System.out.println("Inserire nome modello:");
                     Scanner scanner2 = new Scanner(System.in);
                     String nomeModello = scanner2.nextLine();
-                    for (ArticoliElettronici articolo : magazzino.disponibili()) {
+                    for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
                         if (nomeModello.equals(articolo.checkModello())) {
                             System.out.println(articolo);
                         }

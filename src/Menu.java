@@ -27,14 +27,14 @@ do {
             break;
         case 1:
             System.out.println("Elenco dei dispositivi disponibili:");
-            for (int i = 0; i < dispositivi.disponibili().size(); i++) {
-                System.out.println((i + 1) + ". " + dispositivi.disponibili().get(i).checkTipo() + ": " + dispositivi.disponibili().get(i).checkProduttore() + " " + dispositivi.disponibili().get(i).checkModello() +
-                        " - Prezzo: " + dispositivi.disponibili().get(i).checkPrezzoVendita() + "€");
+            for (int i = 0; i < dispositivi.ritornoElencoArticoli().size(); i++) {
+                System.out.println((i + 1) + ". " + dispositivi.ritornoElencoArticoli().get(i).checkTipo() + ": " + dispositivi.ritornoElencoArticoli().get(i).checkProduttore() + " " + dispositivi.ritornoElencoArticoli().get(i).checkModello() +
+                        " - Prezzo: " + dispositivi.ritornoElencoArticoli().get(i).checkPrezzoVendita() + "€");
             }
             System.out.println("Seleziona il dispositivo da aggiungere:");
             int indiceAggiunzione = scanner.nextInt();
-            if (indiceAggiunzione > 0 && indiceAggiunzione <= dispositivi.disponibili().size()) {
-                carrello.aggiungiProdotto(dispositivi.disponibili().get(indiceAggiunzione - 1));
+            if (indiceAggiunzione > 0 && indiceAggiunzione <= dispositivi.ritornoElencoArticoli().size()) {
+                carrello.aggiungiProdotto(dispositivi.ritornoElencoArticoli().get(indiceAggiunzione - 1));
                 System.out.println("Dispositivo aggiunto al carrello.");
             } else {
                 System.out.println("Selezione non valida.");

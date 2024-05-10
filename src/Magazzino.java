@@ -6,7 +6,7 @@ public class Magazzino {
     public Magazzino() {
     }
 
-    public List<ArticoliElettronici> disponibili() {
+    public List<ArticoliElettronici> ritornoElencoArticoli() {
 
         Smartphone smartphone1 = new Smartphone(Tipo.Smartphone, "Apple", "Iphone12", "Ciao", 7.0, 128, 899.99, 999.99, 827451719);
         Smartphone smartphone2 = new Smartphone(Tipo.Smartphone, "Samsung", "Galaxy A71", "è un buon telefono", 6.3, 128, 399.99, 499.99, 65736593);

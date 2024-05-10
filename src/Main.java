@@ -29,8 +29,8 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
-                    for (int i = 0; i < tipiDiProdotto.disponibili().size(); i++) {
-                        System.out.println((i + 1) + ". " + tipiDiProdotto.disponibili().get(i));
+                    for (int i = 0; i < tipiDiProdotto.ritornoElencoArticoli().size(); i++) {
+                        System.out.println((i + 1) + ". " + tipiDiProdotto.ritornoElencoArticoli().get(i));
                     }
                     System.out.println();
                     break;
