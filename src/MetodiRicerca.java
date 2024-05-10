@@ -36,7 +36,6 @@ public class MetodiRicerca {
                             System.out.println(articolo);
                         }
                     }
-                    System.out.println();
                     break;
                 case "2":
                     System.out.println("Inserire nome modello:");

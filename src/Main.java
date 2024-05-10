@@ -15,7 +15,7 @@ public class Main {
         do {
 
             System.out.println("Selezionare operazione:");
-            System.out.println("0 - Uscita");
+            System.out.println("0 - Esci");
             System.out.println("1 - Accesso al magazzino");
             System.out.println("2 - Ricerca");
             System.out.println("3 - Accesso al carrello");
@@ -25,7 +25,7 @@ public class Main {
 
             switch (scelta) {
                 case 0:
-                    System.out.println("Uscita in corso");
+                    System.out.println("Uscita in corso...");
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");

@@ -16,8 +16,8 @@ public class Magazzino {
         List<ArticoliElettronici> listaDispositivi = new ArrayList<>();
         listaDispositivi.add(smartphone1);
         listaDispositivi.add(smartphone2);
-        listaDispositivi.add(tablet1);
         listaDispositivi.add(notebook1);
+        listaDispositivi.add(tablet1);
 
         return listaDispositivi;
     }

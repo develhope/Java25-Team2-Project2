@@ -8,9 +8,8 @@ public class Menu {
     public void creazioneCarrello () {
 
         Magazzino dispositivi = new Magazzino();
-        dispositivi.disponibili();
-        Scanner scanner = new Scanner(System.in);
         Carrello carrello = new Carrello();
+        Scanner scanner = new Scanner(System.in);
         int scelta;
 
 do {
@@ -24,13 +23,13 @@ do {
 
     switch (scelta) {
         case 0:
-            System.out.println("Uscita dal programma.");
+            System.out.println("Uscita in corso...");
             break;
         case 1:
             System.out.println("Elenco dei dispositivi disponibili:");
             for (int i = 0; i < dispositivi.disponibili().size(); i++) {
-                System.out.println((i + 1) + ". " + dispositivi.disponibili().get(i).checkTipo() + " " + dispositivi.disponibili().get(i).checkModello() +
-                        " - Prezzo: " + dispositivi.disponibili().get(i).checkPrezzoVendita());
+                System.out.println((i + 1) + ". " + dispositivi.disponibili().get(i).checkTipo() + ": " + dispositivi.disponibili().get(i).checkProduttore() + " " + dispositivi.disponibili().get(i).checkModello() +
+                        " - Prezzo: " + dispositivi.disponibili().get(i).checkPrezzoVendita() + "€");
             }
             System.out.println("Seleziona il dispositivo da aggiungere:");
             int indiceAggiunzione = scanner.nextInt();
