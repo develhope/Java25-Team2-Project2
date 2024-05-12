@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
             Menu menu = new Menu();
-            Magazzino tipiDiProdotto = new Magazzino();
+            Magazzino magazzino = new Magazzino();
             //Carrello carrello = new Carrello();
             Scanner scanner = new Scanner(System.in);
             int scelta;
@@ -28,15 +28,15 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
-                    for (int i = 0; i < tipiDiProdotto.disponibili().size(); i++) {
-                        System.out.println((i + 1) + ". " + tipiDiProdotto.disponibili().get(i));
+                    for (int i = 0; i < magazzino.disponibili().size(); i++) {
+                        System.out.println((i + 1) + ". " + magazzino.disponibili().get(i));
                     }
                     System.out.println();
                     break;
                 case 2:
                     System.out.println("Criterio di ricerca:");
                     System.out.println();
-                    MetodiRicerca.metodiDiRicerca();
+                    magazzino.scannerRicercaMagazzino();
                     System.out.println();
                     break;
                 case 3:

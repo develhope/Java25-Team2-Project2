@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Magazzino {
 
@@ -20,5 +21,45 @@ public class Magazzino {
         listaDispositivi.add(notebook1);
 
         return listaDispositivi;
+    }
+
+    public void scannerRicercaMagazzino() {
+
+        Magazzino magazzino = new Magazzino();
+        MetodiRicerca metodiRicerca = new MetodiRicerca();
+        Scanner scanner = new Scanner(System.in);
+        String scelta;
+
+        do {
+            System.out.println("Selezionare operazione:");
+            System.out.println("0 - Uscita");
+            System.out.println("1 - Ricerca per Tipo di Dispositivo");
+            System.out.println("2 - Ricerca per Modello");
+
+            scelta = scanner.nextLine();
+            System.out.println(" ");
+
+            switch (scelta) {
+                case "0":
+                    System.out.println("Uscita in corso");
+                    System.out.println();
+                    break;
+                case "1":
+                    System.out.println("Inserire Tipo di Dispositivo");
+                    Tipo tipoDispositivo = Tipo.valueOf(scanner.nextLine());
+                    metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
+                    System.out.println();
+                    break;
+                case "2":
+                    System.out.println("Inserire nome modello:");
+                    String nomeModello = scanner.nextLine();
+                    metodiRicerca.ricercaModello(nomeModello);
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while (scelta != "0");
+        scanner.close();
     }
 }
