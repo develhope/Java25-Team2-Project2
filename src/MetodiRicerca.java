@@ -7,6 +7,19 @@ public class MetodiRicerca {
     public MetodiRicerca() {
     }
 
+    public void ricercaTipo (Scanner scanner) {
+        System.out.println("Inserire tipologia dispositivo");
+        Tipo tipo = Tipo.valueOf(scanner.nextLine());
+        for(ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (tipo == articolo.checkTipo()) {
+                System.out.println(articolo);
+            }
+        }
+        System.out.println();
+    }
+
+
+
     public static void metodiDiRicerca() {
 
         Scanner scanner = new Scanner(System.in);
@@ -18,6 +31,7 @@ public class MetodiRicerca {
             System.out.println("0 - Uscita");
             System.out.println("1 - Ricerca per Produttore");
             System.out.println("2 - Ricerca per Modello");
+            System.out.println("3 - Ricerca tipo");
 
             scelta = scanner.nextLine();
             System.out.println(" ");
@@ -43,6 +57,17 @@ public class MetodiRicerca {
                     String nomeModello = scanner2.nextLine();
                     for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
                         if (nomeModello.equals(articolo.checkModello())) {
+                            System.out.println(articolo);
+                        }
+                    }
+                    System.out.println();
+                    break;
+                case "3":
+                    System.out.println("Inserire tipologia dispositivo");
+                    Scanner scanner3 = new Scanner(System.in);
+                    Tipo tipo = Tipo.valueOf(scanner3.nextLine());
+                    for(ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+                        if (tipo == articolo.checkTipo()) {
                             System.out.println(articolo);
                         }
                     }

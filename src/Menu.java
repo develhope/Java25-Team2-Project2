@@ -9,6 +9,7 @@ public class Menu {
 
         Magazzino dispositivi = new Magazzino();
         Carrello carrello = new Carrello();
+        MetodiRicerca metodiRicerca = new MetodiRicerca();
         Scanner scanner = new Scanner(System.in);
         int scelta;
 
@@ -19,6 +20,7 @@ do {
     System.out.println("1. Aggiungi articolo");
     System.out.println("2. Rimuovi articolo");
     System.out.println("3. Visualizza carrello");
+    System.out.println("4. Cerca articolo per tipologia");
     scelta = scanner.nextInt();
 
     switch (scelta) {
@@ -54,6 +56,9 @@ do {
             break;
         case 3:
             carrello.visualizzaCarrello();
+            break;
+        case 4:
+            metodiRicerca.ricercaTipo(scanner);
             break;
         default:
             System.out.println("Scelta non valida.");

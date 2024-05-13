@@ -5,20 +5,22 @@ public class Main {
     public static void main(String[] args) {
 
             Menu menu = new Menu();
-            Magazzino tipiDiProdotto = new Magazzino();
+            Magazzino magazzino = new Magazzino();
             Scanner scanner = new Scanner(System.in);
             int scelta;
 
             //Con questo ciclo do/while ripetiamo questo blocco di codice fintanto che non diamo come input "0"
             // o finchè non passiamo ad un altro ciclo do/while.
 
+        magazzino.ritornoElencoArticoli();
         do {
 
             System.out.println("Selezionare operazione:");
             System.out.println("0 - Esci");
             System.out.println("1 - Accesso al magazzino");
-            System.out.println("2 - Ricerca");
-            System.out.println("3 - Accesso al carrello");
+            System.out.println("2 - Aggiungi articolo al magazzino");
+            System.out.println("3 - Ricerca");
+            System.out.println("4 - Accesso al carrello");
 
             scelta = scanner.nextInt();
             System.out.println();
@@ -29,17 +31,24 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
-                    for (int i = 0; i < tipiDiProdotto.ritornoElencoArticoli().size(); i++) {
-                        System.out.println((i + 1) + ". " + tipiDiProdotto.ritornoElencoArticoli().get(i));
+                    for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
+                        System.out.println(articolo);
                     }
                     System.out.println();
                     break;
                 case 2:
+                    System.out.println("Cosa vuoi aggiungere?");
+                    System.out.println();
+                    for(ArticoliElettronici articolo : magazzino.aggiungiSmartphone(magazzino.listaDispositivi)) {
+                        System.out.println(articolo);
+                    }
+                    break;
+                case 3:
                     System.out.println("Criterio di ricerca:");
                     System.out.println();
                     MetodiRicerca.metodiDiRicerca();
                     break;
-                case 3:
+                case 4:
                     menu.creazioneCarrello();
                     break;
                 default:
