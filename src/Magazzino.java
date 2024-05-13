@@ -46,7 +46,7 @@ public class Magazzino {
                     break;
                 case "1":
                     System.out.println("Inserire Tipo di Dispositivo");
-                    Tipo tipoDispositivo = Tipo.valueOf(scanner.nextLine());
+                    String tipoDispositivo = scanner.nextLine();
                     metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
                     System.out.println();
                     break;

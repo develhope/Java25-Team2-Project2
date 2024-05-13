@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class MetodiRicerca {
 
     static Articoli articoli = new Articoli();
@@ -9,41 +7,35 @@ public class MetodiRicerca {
     }
 
     public void ricercaModello(String nomeModello) {
+
+        boolean elementoPresente = false;
+
         for (Articoli articolo : magazzino.disponibili()) {
             if (nomeModello.equals(articolo.getModello())) {
+                elementoPresente = true;
                 System.out.println(articolo);
             } else {
-                System.out.println("Errore: Modello non trovato");
-                break;
+                elementoPresente = false;
             }
+        }
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
         }
     }
 
-    public void ricercaTipoDispositivo(Tipo tipoDispositivo) {
+    public void ricercaTipoDispositivo(String tipoDispositivo) {
+
+        boolean trovatoTipo = false;
 
         for (Articoli articolo : magazzino.disponibili()) {
-            switch (tipoDispositivo) {
-                case Smartphone:
-                    if (articolo.getTipo().equals(tipoDispositivo)) {
-                    System.out.println(articolo);
-                    }
-                    break;
-                case Notebook:
-                    if (articolo.getTipo().equals(tipoDispositivo)) {
-                        System.out.println(articolo);
-                    }
-                    break;
-                case Tablet:
-                    if (articolo.getTipo().equals(tipoDispositivo)) {
-                        System.out.println(articolo);
-                    }
-                    break;
-                default:
-                    if (articolo.getTipo().equals(tipoDispositivo)) {
-                        System.out.println("Errore: Dispositivo non trovato");
-                    }
-                    break;
+            if (String.valueOf(articolo.getTipo()).equals(tipoDispositivo)) {
+                System.out.println(articolo);
+                trovatoTipo = true;
             }
+        }
+
+        if (!trovatoTipo) {
+            System.out.println("Errore: Dispositivo non trovato");
         }
     }
 }
