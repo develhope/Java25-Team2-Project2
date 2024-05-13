@@ -54,6 +54,64 @@ public class Magazzino {
         return listaDispositivi;
     }
 
+    public List<ArticoliElettronici> aggiungiTablet(List<ArticoliElettronici> listaDispositivi) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Tipo tipo = Tipo.Tablet;
+        System.out.println("Inserire nome produttore:");
+        String produttore = scanner.nextLine();
+        System.out.println("Inserire nome modello:");
+        String modello = scanner.nextLine();
+        System.out.println("Inserire descrizione dispositivo:");
+        String descrizione = scanner.nextLine();
+        System.out.println("Inserire dimensione display:");
+        Double dimensioneDisplay = scanner.nextDouble();
+        System.out.println("Inserire spazio archiviazione:");
+        Integer spazioArchiviazione = scanner.nextInt();
+        System.out.println("Inserire prezzo d'acquisto:");
+        Double prezzoAcquisto = scanner.nextDouble();
+        System.out.println("Inserire prezzo di vendita:");
+        Double prezzoVendita = scanner.nextDouble();
+        System.out.println("Inserire ID dispositivo");
+        Integer idDispositivo = scanner.nextInt();
+
+        ArticoliElettronici nuovoTablet = new Tablet(tipo, produttore, modello, descrizione, dimensioneDisplay, spazioArchiviazione, prezzoAcquisto, prezzoVendita, idDispositivo);
+
+        listaDispositivi.add(nuovoTablet);
+
+        return listaDispositivi;
+    }
+
+    public List<ArticoliElettronici> aggiungiNotebook(List<ArticoliElettronici> listaDispositivi) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Tipo tipo = Tipo.Notebook;
+        System.out.println("Inserire nome produttore:");
+        String produttore = scanner.nextLine();
+        System.out.println("Inserire nome modello:");
+        String modello = scanner.nextLine();
+        System.out.println("Inserire descrizione dispositivo:");
+        String descrizione = scanner.nextLine();
+        System.out.println("Inserire dimensione display:");
+        Double dimensioneDisplay = scanner.nextDouble();
+        System.out.println("Inserire spazio archiviazione:");
+        Integer spazioArchiviazione = scanner.nextInt();
+        System.out.println("Inserire prezzo d'acquisto:");
+        Double prezzoAcquisto = scanner.nextDouble();
+        System.out.println("Inserire prezzo di vendita:");
+        Double prezzoVendita = scanner.nextDouble();
+        System.out.println("Inserire ID dispositivo");
+        Integer idDispositivo = scanner.nextInt();
+
+        ArticoliElettronici nuovoNotebook = new Notebook(tipo, produttore, modello, descrizione, dimensioneDisplay, spazioArchiviazione, prezzoAcquisto, prezzoVendita, idDispositivo);
+
+        listaDispositivi.add(nuovoNotebook);
+
+        return listaDispositivi;
+    }
+
     public void scannerRicercaMagazzino() {
 
         Magazzino magazzino = new Magazzino();
