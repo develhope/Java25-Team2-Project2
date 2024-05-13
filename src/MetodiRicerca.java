@@ -1,8 +1,21 @@
+import java.util.Scanner;
+
 public class MetodiRicerca {
 
     static Magazzino magazzino = new Magazzino();
 
     public MetodiRicerca() {
+    }
+
+    public void ricercaTipo(Scanner scanner) {
+        System.out.println("Inserire tipologia dispositivo");
+        Tipo tipo = Tipo.valueOf(scanner.nextLine());
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (tipo == articolo.checkTipo()) {
+                System.out.println(articolo);
+            }
+        }
+        System.out.println();
     }
 
     public void ricercaModello(String nomeModello) {
