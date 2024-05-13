@@ -16,18 +16,19 @@ public class Main {
         do {
 
             System.out.println("Selezionare operazione:");
-            System.out.println("0 - Esci");
+            System.out.println("0 - Uscita");
             System.out.println("1 - Accesso al magazzino");
             System.out.println("2 - Aggiungi articolo al magazzino");
             System.out.println("3 - Ricerca");
             System.out.println("4 - Accesso al carrello");
 
             scelta = scanner.nextInt();
-            System.out.println();
+            System.out.println(" ");
 
             switch (scelta) {
                 case 0:
-                    System.out.println("Uscita in corso...");
+                    System.out.println("Uscita in corso");
+                    System.out.println();
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
@@ -46,10 +47,12 @@ public class Main {
                 case 3:
                     System.out.println("Criterio di ricerca:");
                     System.out.println();
-                    MetodiRicerca.metodiDiRicerca();
+                    magazzino.scannerRicercaMagazzino();
+                    System.out.println();
                     break;
                 case 4:
                     menu.creazioneCarrello();
+                    System.out.println();
                     break;
                 default:
                     System.out.println("Scelta non valida");
