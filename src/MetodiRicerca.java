@@ -12,13 +12,13 @@ public class MetodiRicerca {
         boolean elementoPresente = false;
 
         for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
-            if (nomeProduttore.equals(articolo.checkModello())) {
+            if (nomeProduttore.equals(articolo.checkProduttore())) {
                 System.out.println(articolo);
                 elementoPresente = true;
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
+            System.out.println("Errore: Produttore non disponibile");
         }
     }
 

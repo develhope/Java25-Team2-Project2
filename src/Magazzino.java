@@ -136,7 +136,7 @@ public class Magazzino {
                 case "1":
                     System.out.println("Inserire Tipo di Dispositivo");
                     String tipoDispositivo = scanner.nextLine();
-                    metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
+                    metodiRicerca.ricercaTipoDispositivo(Tipo.valueOf(tipoDispositivo));
                     System.out.println();
                     break;
                 case "2":
