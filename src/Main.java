@@ -39,15 +39,21 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Cosa vuoi aggiungere?");
+                    System.out.println("1. Smartphone");
+                    System.out.println("2. Notebook");
+                    System.out.println("3. Tablet");
+                    Integer sceltaTipo = scanner.nextInt();
                     System.out.println();
+                    if(sceltaTipo == 1) {
                     for(ArticoliElettronici articolo : magazzino.aggiungiSmartphone(magazzino.listaDispositivi)) {
                         System.out.println(articolo);
+                    }
                     }
                     break;
                 case 3:
                     System.out.println("Criterio di ricerca:");
                     System.out.println();
-                    magazzino.scannerRicercaMagazzino();
+                    menu.ricercaDispositivi();
                     System.out.println();
                     break;
                 case 4:

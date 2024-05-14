@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Objects;
 
 public class MetodiRicerca {
 
@@ -7,15 +7,19 @@ public class MetodiRicerca {
     public MetodiRicerca() {
     }
 
-    public void ricercaTipo(Scanner scanner) {
-        System.out.println("Inserire tipologia dispositivo");
-        Tipo tipo = Tipo.valueOf(scanner.nextLine());
+    public void ricercaProduttore(String nomeProduttore) {
+
+        boolean elementoPresente = false;
+
         for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
-            if (tipo == articolo.checkTipo()) {
+            if (nomeProduttore.equals(articolo.checkModello())) {
                 System.out.println(articolo);
+                elementoPresente = true;
             }
         }
-        System.out.println();
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
+        }
     }
 
     public void ricercaModello(String nomeModello) {
@@ -24,8 +28,8 @@ public class MetodiRicerca {
 
         for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
             if (nomeModello.equals(articolo.checkModello())) {
-                elementoPresente = true;
                 System.out.println(articolo);
+                elementoPresente = true;
             }
         }
         if (!elementoPresente) {
@@ -33,19 +37,67 @@ public class MetodiRicerca {
         }
     }
 
-    public void ricercaTipoDispositivo(String tipoDispositivo) {
+    public void ricercaTipoDispositivo(Tipo tipoDispositivo) {
 
-        boolean trovatoTipo = false;
+        boolean elementoPresente = false;
 
         for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
-            if (String.valueOf(articolo.checkTipo()).equals(tipoDispositivo)) {
+            if (tipoDispositivo.equals(articolo.checkTipo())) {
                 System.out.println(articolo);
-                trovatoTipo = true;
+                elementoPresente = true;
             }
         }
 
-        if (!trovatoTipo) {
+        if (!elementoPresente) {
             System.out.println("Errore: Dispositivo non trovato");
+        }
+    }
+
+    public void ricercaPrezzoVendita (Double prezzoVendita) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (Objects.equals(prezzoVendita, articolo.checkPrezzoVendita())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo del costo di: " + prezzoVendita + "€");
+        }
+    }
+
+    public void ricercaPrezzoAcquisto (Double prezzoAcquisto) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (Objects.equals(prezzoAcquisto, articolo.checkPrezzoAcquisto())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo con un prezzo d'acquisto di: " + prezzoAcquisto + "€");
+        }
+    }
+
+    public void ricercaRangePrezzo (Double min, Double max) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (min <= articolo.checkPrezzoVendita() && max >= articolo.checkPrezzoVendita()) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
         }
     }
 }
