@@ -16,6 +16,7 @@ public class Main {
         
         do {
 
+            System.out.println();
             System.out.println("Selezionare operazione:");
             System.out.println("0 - Uscita");
             System.out.println("1 - Accesso al magazzino");
@@ -52,8 +53,6 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Criterio di ricerca:");
-                    System.out.println();
                     menu.ricercaDispositivi();
                     System.out.println();
                     break;
