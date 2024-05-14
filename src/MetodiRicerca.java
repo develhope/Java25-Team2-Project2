@@ -84,4 +84,20 @@ public class MetodiRicerca {
             System.out.println("Errore: Nessun articolo con un prezzo d'acquisto di: " + prezzoAcquisto + "€");
         }
     }
+
+    public void ricercaRangePrezzo (Double min, Double max) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (min <= articolo.checkPrezzoVendita() && max >= articolo.checkPrezzoVendita()) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
+        }
+    }
 }

@@ -82,6 +82,7 @@ public class Menu {
             System.out.println("3. Ricerca per modello");
             System.out.println("4. Ricerca per prezzo di vendita");
             System.out.println("5. Ricerca per prezzo di acquisto");
+            System.out.println("6. Ricerca per range di prezzo");
             scelta = scanner.nextLine();
 
 
@@ -118,6 +119,14 @@ public class Menu {
                     System.out.println("Inserire prezzo:");
                     prezzoAcquisto = Double.parseDouble(scanner.nextLine());
                     metodiRicerca.ricercaPrezzoAcquisto(prezzoAcquisto);
+                    System.out.println();
+                    break;
+                case "6":
+                    System.out.println("Inserire prezzo minimo:");
+                    double prezzoMinimo = Double.parseDouble(scanner.nextLine());
+                    System.out.println("Inserire prezzo massimo");
+                    double prezzoMassimo = Double.parseDouble(scanner.nextLine());
+                    metodiRicerca.ricercaRangePrezzo(prezzoMinimo, prezzoMassimo);
                     System.out.println();
                     break;
                 default:
