@@ -1,69 +1,111 @@
 import java.util.Scanner;
 
 public class Menu {
+    Magazzino magazzino;
+    Carrello carrello;
+    MetodiRicerca metodiRicerca;
+    Scanner scanner;
 
-    public Menu () {
+    public Menu() {
+        magazzino = new Magazzino();
+        carrello = new Carrello();
+        metodiRicerca = new MetodiRicerca();
+        scanner = new Scanner(System.in);
     }
 
-    public void creazioneCarrello () {
+    public void creazioneCarrello() {
 
-        Magazzino dispositivi = new Magazzino();
-        Carrello carrello = new Carrello();
-        MetodiRicerca metodiRicerca = new MetodiRicerca();
-        Scanner scanner = new Scanner(System.in);
         int scelta;
 
-do {
+        do {
 
-    System.out.println("Menu:");
-    System.out.println("0. Esci");
-    System.out.println("1. Aggiungi articolo");
-    System.out.println("2. Rimuovi articolo");
-    System.out.println("3. Visualizza carrello");
-    System.out.println("4. Cerca articolo per tipologia");
-    scelta = scanner.nextInt();
+            System.out.println("Menu:");
+            System.out.println("0. Esci");
+            System.out.println("1. Aggiungi articolo");
+            System.out.println("2. Rimuovi articolo");
+            System.out.println("3. Visualizza carrello");
+            scelta = scanner.nextInt();
 
-    switch (scelta) {
-        case 0:
-            System.out.println("Uscita in corso...");
-            break;
-        case 1:
-            System.out.println("Elenco dei dispositivi disponibili:");
-            for (int i = 0; i < dispositivi.ritornoElencoArticoli().size(); i++) {
-                System.out.println((i + 1) + ". " + dispositivi.ritornoElencoArticoli().get(i).checkTipo() + ": " + dispositivi.ritornoElencoArticoli().get(i).checkProduttore() + " " + dispositivi.ritornoElencoArticoli().get(i).checkModello() +
-                        " - Prezzo: " + dispositivi.ritornoElencoArticoli().get(i).checkPrezzoVendita() + "€");
+            switch (scelta) {
+                case 0:
+                    System.out.println("Uscita in corso...");
+                    break;
+                case 1:
+                    System.out.println("Elenco dei dispositivi disponibili:");
+                    for (int i = 0; i < magazzino.ritornoElencoArticoli().size(); i++) {
+                        System.out.println((i + 1) + ". " + magazzino.ritornoElencoArticoli().get(i).checkTipo() + ": " + magazzino.ritornoElencoArticoli().get(i).checkProduttore() + " " + magazzino.ritornoElencoArticoli().get(i).checkModello() +
+                                " - Prezzo: " + magazzino.ritornoElencoArticoli().get(i).checkPrezzoVendita() + "€");
+                    }
+                    System.out.println("Seleziona il dispositivo da aggiungere:");
+                    int indiceAggiunzione = scanner.nextInt();
+                    if (indiceAggiunzione > 0 && indiceAggiunzione <= magazzino.ritornoElencoArticoli().size()) {
+                        carrello.aggiungiProdotto(magazzino.ritornoElencoArticoli().get(indiceAggiunzione - 1));
+                        System.out.println("Dispositivo aggiunto al carrello.");
+                    } else {
+                        System.out.println("Selezione non valida.");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Elenco articoli nel carrello:");
+                    carrello.visualizzaCarrello();
+                    System.out.println("Cosa vuoi rimuovere?");
+                    int indiceRimozione = scanner.nextInt();
+                    if (indiceRimozione > 0 && indiceRimozione <= carrello.visualizzaCarrello().size()) {
+                        carrello.rimuoviProdotto(carrello.articoli.remove(indiceRimozione - 1));
+                        System.out.println("Dispositivo rimosso dal carrello.");
+                    } else {
+                        System.out.println("Selezione non valida.");
+                    }
+                    break;
+                case 3:
+                    carrello.visualizzaCarrello();
+                    break;
+                default:
+                    System.out.println("Scelta non valida.");
+                    break;
             }
-            System.out.println("Seleziona il dispositivo da aggiungere:");
-            int indiceAggiunzione = scanner.nextInt();
-            if (indiceAggiunzione > 0 && indiceAggiunzione <= dispositivi.ritornoElencoArticoli().size()) {
-                carrello.aggiungiProdotto(dispositivi.ritornoElencoArticoli().get(indiceAggiunzione - 1));
-                System.out.println("Dispositivo aggiunto al carrello.");
-            } else {
-                System.out.println("Selezione non valida.");
-            }
-            break;
-        case 2:
-            System.out.println("Elenco articoli nel carrello:");
-            carrello.visualizzaCarrello();
-            System.out.println("Cosa vuoi rimuovere?");
-            int indiceRimozione = scanner.nextInt();
-            if (indiceRimozione > 0 && indiceRimozione <= carrello.visualizzaCarrello().size()) {
-                carrello.rimuoviProdotto(carrello.articoli.remove(indiceRimozione - 1));
-                System.out.println("Dispositivo rimosso dal carrello.");
-            } else {
-                System.out.println("Selezione non valida.");
-            }
-            break;
-        case 3:
-            carrello.visualizzaCarrello();
-            break;
-        case 4:
-            metodiRicerca.ricercaTipo(scanner);
-            break;
-        default:
-            System.out.println("Scelta non valida.");
-            break;
+        } while (scelta != 0);
     }
-} while (scelta != 0);
+
+    public void ricercaDispositivi() {
+
+        String scelta;
+        Tipo tipoDispositivo;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("0. Esci");
+            System.out.println("1. Ricerca per Tipo");
+            System.out.println("2. Ricerca per produttore");
+            System.out.println("3. Ricerca per modello");
+            scelta = scanner.nextLine();
+
+            switch (scelta) {
+                case "0":
+                    System.out.println("Uscita in corso...");
+                    System.out.println();
+                    break;
+                case "1":
+                    System.out.println("Inserire tipologia dispositivo");
+                    tipoDispositivo = Tipo.valueOf(scanner.nextLine());
+                    metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
+                    System.out.println();
+                    break;
+                case "2":
+                    System.out.println("Inserire nome produttore");
+                    String nomeProduttore = scanner.nextLine();
+                    metodiRicerca.ricercaProduttore(nomeProduttore);
+                    System.out.println();
+                    break;
+                case "3":
+                    System.out.println("Inserire nome modello:");
+                    String nomeModello = scanner.nextLine();
+                    metodiRicerca.ricercaModello(nomeModello);
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while (!scelta.equals("0"));
     }
 }

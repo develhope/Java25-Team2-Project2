@@ -16,7 +16,7 @@ public class Magazzino {
         Notebook notebook1 = new Notebook(Tipo.Notebook, "Intel", "Chuwi", "Ciao2", 15.4, 500, 200.00, 269.99, 2333242);
         Tablet tablet1 = new Tablet(Tipo.Tablet, "Samsung", "Galaxy S7", "è bello", 10.1, 64, 200.00 , 249.99, 65307503);
 
-        List<ArticoliElettronici> listaDispositivi = new ArrayList<>();
+
         listaDispositivi.add(smartphone1);
         listaDispositivi.add(smartphone2);
         listaDispositivi.add(notebook1);
@@ -114,7 +114,6 @@ public class Magazzino {
 
     public void scannerRicercaMagazzino() {
 
-        Magazzino magazzino = new Magazzino();
         MetodiRicerca metodiRicerca = new MetodiRicerca();
         Scanner scanner = new Scanner(System.in);
         String scelta;
@@ -135,7 +134,7 @@ public class Magazzino {
                     break;
                 case "1":
                     System.out.println("Inserire Tipo di Dispositivo");
-                    String tipoDispositivo = scanner.nextLine();
+                    Tipo tipoDispositivo = Tipo.valueOf(scanner.nextLine());
                     metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
                     System.out.println();
                     break;
@@ -148,7 +147,6 @@ public class Magazzino {
                 default:
                     System.out.println("Scelta non valida");
             }
-        } while (scelta != "0");
-        scanner.close();
+        } while (!scelta.equals("0"));
     }
 }
