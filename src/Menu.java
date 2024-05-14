@@ -71,6 +71,8 @@ public class Menu {
 
         String scelta;
         Tipo tipoDispositivo;
+        double prezzoVendita;
+        double prezzoAcquisto;
 
         do {
             System.out.println("Menu:");
@@ -78,7 +80,10 @@ public class Menu {
             System.out.println("1. Ricerca per Tipo");
             System.out.println("2. Ricerca per produttore");
             System.out.println("3. Ricerca per modello");
+            System.out.println("4. Ricerca per prezzo di vendita");
+            System.out.println("5. Ricerca per prezzo di acquisto");
             scelta = scanner.nextLine();
+
 
             switch (scelta) {
                 case "0":
@@ -86,13 +91,13 @@ public class Menu {
                     System.out.println();
                     break;
                 case "1":
-                    System.out.println("Inserire tipologia dispositivo");
+                    System.out.println("Inserire tipologia dispositivo:");
                     tipoDispositivo = Tipo.valueOf(scanner.nextLine());
                     metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
                     System.out.println();
                     break;
                 case "2":
-                    System.out.println("Inserire nome produttore");
+                    System.out.println("Inserire nome produttore:");
                     String nomeProduttore = scanner.nextLine();
                     metodiRicerca.ricercaProduttore(nomeProduttore);
                     System.out.println();
@@ -103,8 +108,21 @@ public class Menu {
                     metodiRicerca.ricercaModello(nomeModello);
                     System.out.println();
                     break;
+                case "4":
+                    System.out.println("Inserire prezzo:");
+                    prezzoVendita = Double.parseDouble(scanner.nextLine());
+                    metodiRicerca.ricercaPrezzoVendita(prezzoVendita);
+                    System.out.println();
+                    break;
+                case "5":
+                    System.out.println("Inserire prezzo:");
+                    prezzoAcquisto = Double.parseDouble(scanner.nextLine());
+                    metodiRicerca.ricercaPrezzoAcquisto(prezzoAcquisto);
+                    System.out.println();
+                    break;
                 default:
                     System.out.println("Scelta non valida");
+                    System.out.println();
             }
         } while (!scelta.equals("0"));
     }

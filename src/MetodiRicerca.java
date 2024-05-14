@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class MetodiRicerca {
 
     static Magazzino magazzino = new Magazzino();
@@ -37,17 +39,49 @@ public class MetodiRicerca {
 
     public void ricercaTipoDispositivo(Tipo tipoDispositivo) {
 
-        boolean trovatoTipo = false;
+        boolean elementoPresente = false;
 
         for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
             if (tipoDispositivo.equals(articolo.checkTipo())) {
                 System.out.println(articolo);
-                trovatoTipo = true;
+                elementoPresente = true;
             }
         }
 
-        if (!trovatoTipo) {
+        if (!elementoPresente) {
             System.out.println("Errore: Dispositivo non trovato");
+        }
+    }
+
+    public void ricercaPrezzoVendita (Double prezzoVendita) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (Objects.equals(prezzoVendita, articolo.checkPrezzoVendita())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo del costo di: " + prezzoVendita + "€");
+        }
+    }
+
+    public void ricercaPrezzoAcquisto (Double prezzoAcquisto) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+            if (Objects.equals(prezzoAcquisto, articolo.checkPrezzoAcquisto())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo con un prezzo d'acquisto di: " + prezzoAcquisto + "€");
         }
     }
 }
