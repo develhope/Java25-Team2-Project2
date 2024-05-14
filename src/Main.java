@@ -13,6 +13,7 @@ public class Main {
             // o finchè non passiamo ad un altro ciclo do/while.
 
         magazzino.ritornoElencoArticoli();
+        
         do {
 
             System.out.println("Selezionare operazione:");

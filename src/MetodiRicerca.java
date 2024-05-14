@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MetodiRicerca {
 
-    static Magazzino magazzino = new Magazzino();
+    Magazzino magazzino = new Magazzino();
 
     public MetodiRicerca() {
     }
@@ -10,7 +10,7 @@ public class MetodiRicerca {
     public void ricercaTipo(Scanner scanner) {
         System.out.println("Inserire tipologia dispositivo");
         Tipo tipo = Tipo.valueOf(scanner.nextLine());
-        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+        for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
             if (tipo == articolo.checkTipo()) {
                 System.out.println(articolo);
             }
@@ -22,7 +22,7 @@ public class MetodiRicerca {
 
         boolean elementoPresente = false;
 
-        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+        for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
             if (nomeModello.equals(articolo.checkModello())) {
                 elementoPresente = true;
                 System.out.println(articolo);
@@ -37,7 +37,7 @@ public class MetodiRicerca {
 
         boolean trovatoTipo = false;
 
-        for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+        for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
             if (String.valueOf(articolo.checkTipo()).equals(tipoDispositivo)) {
                 System.out.println(articolo);
                 trovatoTipo = true;
