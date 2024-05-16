@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class Main {
 
+    static Magazzino magazzino;
+
     public static void main(String[] args) {
 
         Menu menu = new Menu();
-        Magazzino magazzino = new Magazzino();
+        magazzino = new Magazzino();
         Scanner scanner = new Scanner(System.in);
         int scelta;
 
@@ -31,7 +33,7 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
-                    for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
+                    for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
                         System.out.println(articolo);
                     }
                     System.out.println();

@@ -11,10 +11,6 @@ public class Magazzino {
         listaDispositivi = new ArrayList<>();
         scanner = new Scanner(System.in);
 
-    }
-
-    public ArrayList<ArticoliElettronici> ritornoElencoArticoli() {
-
         Smartphone smartphone1 = new Smartphone(Tipo.Smartphone, "Apple", "Iphone12", "Ciao", 7.0, 128, 899.99, 999.99, 827451719);
         Smartphone smartphone2 = new Smartphone(Tipo.Smartphone, "Samsung", "Galaxy A71", "è un buon telefono", 6.3, 128, 399.99, 499.99, 65736593);
         Smartphone smartphone3 = new Smartphone(Tipo.Smartphone, "LG", "Wing", "Può ruotare lo schermo", 6.8, 256, 399.99, 524.99, 78507);
@@ -36,8 +32,6 @@ public class Magazzino {
         listaDispositivi.add(tablet1);
         listaDispositivi.add(tablet2);
         listaDispositivi.add(tablet3);
-
-        return listaDispositivi;
     }
 
     public List<ArticoliElettronici> aggiungiSmartphone() {
