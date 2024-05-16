@@ -32,14 +32,14 @@ public class Menu {
                     break;
                 case 1:
                     System.out.println("Elenco dei dispositivi disponibili:");
-                    for (int i = 0; i < magazzino.ritornoElencoArticoli().size(); i++) {
-                        System.out.println((i + 1) + ". " + magazzino.ritornoElencoArticoli().get(i).checkTipo() + ": " + magazzino.ritornoElencoArticoli().get(i).checkProduttore() + " " + magazzino.ritornoElencoArticoli().get(i).checkModello() +
-                                " - Prezzo: " + magazzino.ritornoElencoArticoli().get(i).checkPrezzoVendita() + "€");
+                    for (int i = 0; i < magazzino.listaDispositivi.size(); i++) {
+                        System.out.println((i + 1) + ". " + magazzino.listaDispositivi.get(i).checkTipo() + ": " + magazzino.listaDispositivi.get(i).checkProduttore() + " " + magazzino.listaDispositivi.get(i).checkModello() +
+                                " - Prezzo: " + magazzino.listaDispositivi.get(i).checkPrezzoVendita() + "€");
                     }
                     System.out.println("Seleziona il dispositivo da aggiungere:");
                     int indiceAggiunzione = scanner.nextInt();
-                    if (indiceAggiunzione > 0 && indiceAggiunzione <= magazzino.ritornoElencoArticoli().size()) {
-                        carrello.aggiungiProdotto(magazzino.ritornoElencoArticoli().get(indiceAggiunzione - 1));
+                    if (indiceAggiunzione > 0 && indiceAggiunzione <= magazzino.listaDispositivi.size()) {
+                        carrello.aggiungiProdotto(magazzino.listaDispositivi.get(indiceAggiunzione - 1));
                         System.out.println("Dispositivo aggiunto al carrello.");
                     } else {
                         System.out.println("Selezione non valida.");

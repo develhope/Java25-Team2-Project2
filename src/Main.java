@@ -4,15 +4,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-            Menu menu = new Menu();
-            Magazzino magazzino = new Magazzino();
-            Scanner scanner = new Scanner(System.in);
-            int scelta;
+        Menu menu = new Menu();
+        Magazzino magazzino = new Magazzino();
+        Scanner scanner = new Scanner(System.in);
+        int scelta;
 
-            //Con questo ciclo do/while ripetiamo questo blocco di codice fintanto che non diamo come input "0"
-            // o finchè non passiamo ad un altro ciclo do/while.
+        //Con questo ciclo do/while ripetiamo questo blocco di codice fintanto che non diamo come input "0"
+        // o finchè non passiamo ad un altro ciclo do/while.
 
-        magazzino.ritornoElencoArticoli();
         do {
 
             System.out.println("Selezionare operazione:");
@@ -32,7 +31,7 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("Dispositivi presenti nel magazzino:");
-                    for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
+                    for (ArticoliElettronici articolo : magazzino.ritornoElencoArticoli()) {
                         System.out.println(articolo);
                     }
                     System.out.println();
@@ -44,11 +43,22 @@ public class Main {
                     System.out.println("3. Tablet");
                     Integer sceltaTipo = scanner.nextInt();
                     System.out.println();
-                    if(sceltaTipo == 1) {
-                    for(ArticoliElettronici articolo : magazzino.aggiungiSmartphone(magazzino.listaDispositivi)) {
-                        System.out.println(articolo);
+                    if (sceltaTipo == 1) {
+                        for (ArticoliElettronici articolo : magazzino.aggiungiSmartphone()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo == 2) {
+                        for (ArticoliElettronici articolo : magazzino.aggiungiNotebook()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo == 3) {
+                        for (ArticoliElettronici articolo : magazzino.aggiungiTablet()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo < 1 || sceltaTipo > 3) {
+                        System.out.println("scelta non valida");
                     }
-                    }
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("Criterio di ricerca:");
