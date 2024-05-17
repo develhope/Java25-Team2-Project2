@@ -3,14 +3,85 @@ import java.util.Scanner;
 public class Menu {
     Magazzino magazzino;
     Carrello carrello;
-    MetodiRicerca metodiRicerca;
     Scanner scanner;
 
     public Menu() {
         magazzino = new Magazzino();
         carrello = new Carrello();
-        metodiRicerca = new MetodiRicerca();
         scanner = new Scanner(System.in);
+    }
+
+    public void menuPrincipale () {
+        //Con questo ciclo do/while ripetiamo questo blocco di codice fintanto che non diamo come input "0"
+        // o finchè non passiamo ad un altro ciclo do/while.
+
+        int scelta;
+        int indice = 0;
+
+        do {
+
+            System.out.println("Selezionare operazione:");
+            System.out.println("0 - Uscita");
+            System.out.println("1 - Accesso al magazzino");
+            System.out.println("2 - Aggiungi articolo al magazzino");
+            System.out.println("3 - Ricerca");
+            System.out.println("4 - Accesso al carrello");
+
+            scelta = scanner.nextInt();
+            System.out.println(" ");
+
+            switch (scelta) {
+                case 0:
+                    System.out.println("Uscita in corso");
+                    System.out.println();
+                    break;
+                case 1:
+                    System.out.println("Dispositivi presenti nel magazzino:");
+                    for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
+                        System.out.println(articolo);
+                    }
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println("Cosa vuoi aggiungere?");
+                    System.out.println("1. Smartphone");
+                    System.out.println("2. Notebook");
+                    System.out.println("3. Tablet");
+                    Integer sceltaTipo = scanner.nextInt();
+                    System.out.println();
+                    if (sceltaTipo == 1) {
+                        magazzino.aggiungiSmartphone();
+                        for (ArticoliElettronici articolo : magazzino.aggiungiSmartphone()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo == 2) {
+                        for (ArticoliElettronici articolo : magazzino.aggiungiNotebook()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo == 3) {
+                        for (ArticoliElettronici articolo : magazzino.aggiungiTablet()) {
+                            System.out.println(articolo);
+                        }
+                    } else if (sceltaTipo < 1 || sceltaTipo > 3) {
+                        System.out.println("scelta non valida");
+                    }
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println("Criterio di ricerca:");
+                    System.out.println();
+                    ricercaDispositivi();
+                    System.out.println();
+                    break;
+                case 4:
+                    creazioneCarrello();
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+        } while (scelta != 0);
+        scanner.close();
     }
 
     public void creazioneCarrello() {
@@ -69,10 +140,11 @@ public class Menu {
 
     public void ricercaDispositivi() {
 
-        String scelta;
+        Integer scelta;
         Tipo tipoDispositivo;
         double prezzoVendita;
         double prezzoAcquisto;
+
 
         do {
             System.out.println("Menu:");
@@ -83,56 +155,59 @@ public class Menu {
             System.out.println("4. Ricerca per prezzo di vendita");
             System.out.println("5. Ricerca per prezzo di acquisto");
             System.out.println("6. Ricerca per range di prezzo");
-            scelta = scanner.nextLine();
+            scelta = scanner.nextInt();
 
 
             switch (scelta) {
-                case "0":
+                case 0:
                     System.out.println("Uscita in corso...");
                     System.out.println();
                     break;
-                case "1":
+                case 1:
                     System.out.println("Inserire tipologia dispositivo:");
+                    scanner.nextLine();
                     tipoDispositivo = Tipo.valueOf(scanner.nextLine());
-                    metodiRicerca.ricercaTipoDispositivo(tipoDispositivo);
+                    magazzino.ricercaTipoDispositivo(tipoDispositivo);
                     System.out.println();
                     break;
-                case "2":
+                case 2:
                     System.out.println("Inserire nome produttore:");
+                    scanner.nextLine();
                     String nomeProduttore = scanner.nextLine();
-                    metodiRicerca.ricercaProduttore(nomeProduttore);
+                    magazzino.ricercaProduttore(nomeProduttore);
                     System.out.println();
                     break;
-                case "3":
+                case 3:
                     System.out.println("Inserire nome modello:");
+                    scanner.nextLine();
                     String nomeModello = scanner.nextLine();
-                    metodiRicerca.ricercaModello(nomeModello);
+                    magazzino.ricercaModello(nomeModello);
                     System.out.println();
                     break;
-                case "4":
+                case 4:
                     System.out.println("Inserire prezzo:");
-                    prezzoVendita = Double.parseDouble(scanner.nextLine());
-                    metodiRicerca.ricercaPrezzoVendita(prezzoVendita);
+                    prezzoVendita = scanner.nextDouble();
+                    magazzino.ricercaPrezzoVendita(prezzoVendita);
                     System.out.println();
                     break;
-                case "5":
+                case 5:
                     System.out.println("Inserire prezzo:");
-                    prezzoAcquisto = Double.parseDouble(scanner.nextLine());
-                    metodiRicerca.ricercaPrezzoAcquisto(prezzoAcquisto);
+                    prezzoAcquisto = scanner.nextDouble();
+                    magazzino.ricercaPrezzoAcquisto(prezzoAcquisto);
                     System.out.println();
                     break;
-                case "6":
+                case 6:
                     System.out.println("Inserire prezzo minimo:");
-                    double prezzoMinimo = Double.parseDouble(scanner.nextLine());
+                    double prezzoMinimo = scanner.nextDouble();
                     System.out.println("Inserire prezzo massimo");
-                    double prezzoMassimo = Double.parseDouble(scanner.nextLine());
-                    metodiRicerca.ricercaRangePrezzo(prezzoMinimo, prezzoMassimo);
+                    double prezzoMassimo = scanner.nextDouble();
+                    magazzino.ricercaRangePrezzo(prezzoMinimo, prezzoMassimo);
                     System.out.println();
                     break;
                 default:
                     System.out.println("Scelta non valida");
                     System.out.println();
             }
-        } while (!scelta.equals("0"));
+        } while (scelta != 0);
     }
 }

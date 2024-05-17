@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Magazzino {
 
-    ArrayList<ArticoliElettronici> listaDispositivi;
+    ArrayList<ArticoliElettronici> listaDispositivi = new ArrayList<>();
     Scanner scanner;
 
     public Magazzino() {
-        listaDispositivi = new ArrayList<>();
         scanner = new Scanner(System.in);
 
         Smartphone smartphone1 = new Smartphone(Tipo.Smartphone, "Apple", "Iphone12", "Ciao", 7.0, 128, 899.99, 999.99, 827451719);
@@ -54,7 +54,7 @@ public class Magazzino {
         System.out.println("Inserire ID dispositivo");
         Integer idDispositivo = scanner.nextInt();
 
-        ArticoliElettronici nuovoSmartphone = new Smartphone(tipo, produttore, modello, descrizione, dimensioneDisplay, spazioArchiviazione, prezzoAcquisto, prezzoVendita, idDispositivo);
+        Smartphone nuovoSmartphone = new Smartphone(tipo, produttore, modello, descrizione, dimensioneDisplay, spazioArchiviazione, prezzoAcquisto, prezzoVendita, idDispositivo);
 
         listaDispositivi.add(nuovoSmartphone);
 
@@ -115,7 +115,97 @@ public class Magazzino {
         return listaDispositivi;
     }
 
-    public List<ArticoliElettronici> getListaDispositivi() {
-        return listaDispositivi;
+    public void ricercaTipoDispositivo(Tipo tipoDispositivo) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (tipoDispositivo.equals(articolo.checkTipo())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Dispositivo non trovato");
+        }
+    }
+
+    public void ricercaProduttore(String nomeProduttore) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (nomeProduttore.equals(articolo.checkProduttore())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
+        }
+    }
+
+    public void ricercaModello(String nomeModello) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (nomeModello.equals(articolo.checkModello())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
+        }
+    }
+
+    public void ricercaPrezzoVendita (Double prezzoVendita) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (Objects.equals(prezzoVendita, articolo.checkPrezzoVendita())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo del costo di: " + prezzoVendita + "€");
+        }
+    }
+
+    public void ricercaPrezzoAcquisto (Double prezzoAcquisto) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (Objects.equals(prezzoAcquisto, articolo.checkPrezzoAcquisto())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo con un prezzo d'acquisto di: " + prezzoAcquisto + "€");
+        }
+    }
+
+    public void ricercaRangePrezzo (Double min, Double max) {
+
+        boolean elementoPresente = false;
+
+        for (ArticoliElettronici articolo : listaDispositivi) {
+            if (min <= articolo.checkPrezzoVendita() && max >= articolo.checkPrezzoVendita()) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
+        }
     }
 }
