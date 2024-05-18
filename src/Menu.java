@@ -157,11 +157,10 @@ public class Menu {
         double prezzoVendita;
         double prezzoAcquisto;
 
-
         do {
-            System.out.println("Menu:");
+            System.out.println("Selezionare criterio di ricerca:");
             System.out.println("0. Esci");
-            System.out.println("1. Ricerca per Tipo");
+            System.out.println("1. Ricerca per tipo");
             System.out.println("2. Ricerca per produttore");
             System.out.println("3. Ricerca per modello");
             System.out.println("4. Ricerca per prezzo di vendita");
