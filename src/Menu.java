@@ -92,9 +92,11 @@ public class Menu {
 
             System.out.println("Menu:");
             System.out.println("0. Esci");
-            System.out.println("1. Aggiungi articolo");
-            System.out.println("2. Rimuovi articolo");
+            System.out.println("1. Aggiungi articoli");
+            System.out.println("2. Rimuovi articoli");
             System.out.println("3. Visualizza carrello");
+            System.out.println("4. Calcolo prezzo medio per articolo");
+            System.out.println("5. Acquista articoli");
             scelta = scanner.nextInt();
 
             switch (scelta) {
@@ -130,6 +132,16 @@ public class Menu {
                     break;
                 case 3:
                     carrello.visualizzaCarrello();
+                    break;
+                case 4:
+                    System.out.println();
+                    System.out.println("Il prezzo medio di ogni articolo è di: " + carrello.calcoloMediaPrezzi() + "€");
+                    System.out.println();
+                    break;
+                case 5:
+                    System.out.println();
+                    carrello.finalizzaOperazioneVendita();
+                    System.out.println();
                     break;
                 default:
                     System.out.println("Scelta non valida.");
