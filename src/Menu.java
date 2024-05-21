@@ -16,60 +16,55 @@ public class Menu {
         // o finchè non passiamo ad un altro ciclo do/while.
 
         int scelta;
-        int indice = 0;
 
         do {
 
-            System.out.println("Selezionare operazione:");
-            System.out.println("0 - Uscita");
-            System.out.println("1 - Accesso al magazzino");
-            System.out.println("2 - Aggiungi articolo al magazzino");
-            System.out.println("3 - Ricerca");
-            System.out.println("4 - Accesso al carrello");
+            System.out.println("Selezionare operazione:\n");
+            System.out.println("0. Esci");
+            System.out.println("1. Accesso al magazzino");
+            System.out.println("2. Aggiungi articolo al magazzino");
+            System.out.println("3. Ricerca dispositivi");
+            System.out.println("4. Accesso al carrello");
 
             scelta = scanner.nextInt();
             System.out.println(" ");
 
             switch (scelta) {
                 case 0:
-                    System.out.println("Uscita in corso");
-                    System.out.println();
+                    System.out.println("Uscita in corso...");
                     break;
                 case 1:
-                    System.out.println("Dispositivi presenti nel magazzino:");
+                    System.out.println("Dispositivi presenti nel magazzino:\n");
+                    int indice = 0;
                     for (ArticoliElettronici articolo : magazzino.listaDispositivi) {
-                        System.out.println(articolo);
+                        indice++;
+                        System.out.println(indice + ". " + articolo);
                     }
                     System.out.println();
                     break;
                 case 2:
-                    System.out.println("Cosa vuoi aggiungere?");
+                    System.out.println("Cosa vuoi aggiungere?\n");
+                    System.out.println("0. Esci");
                     System.out.println("1. Smartphone");
                     System.out.println("2. Notebook");
                     System.out.println("3. Tablet");
-                    Integer sceltaTipo = scanner.nextInt();
+                    int sceltaTipo = scanner.nextInt();
                     System.out.println();
-                    if (sceltaTipo == 1) {
+                    if (sceltaTipo == 0) {
+                        System.out.println("Uscita in corso...");
+                    } else if (sceltaTipo == 1) {
                         magazzino.aggiungiSmartphone();
-                        for (ArticoliElettronici articolo : magazzino.aggiungiSmartphone()) {
-                            System.out.println(articolo);
-                        }
                     } else if (sceltaTipo == 2) {
-                        for (ArticoliElettronici articolo : magazzino.aggiungiNotebook()) {
-                            System.out.println(articolo);
-                        }
+                        magazzino.aggiungiNotebook();
                     } else if (sceltaTipo == 3) {
-                        for (ArticoliElettronici articolo : magazzino.aggiungiTablet()) {
-                            System.out.println(articolo);
-                        }
-                    } else if (sceltaTipo < 1 || sceltaTipo > 3) {
+                        magazzino.aggiungiTablet();
+                    } else {
                         System.out.println("scelta non valida");
                     }
                     System.out.println();
                     break;
                 case 3:
-                    System.out.println("Criterio di ricerca:");
-                    System.out.println();
+                    System.out.println("Criterio di ricerca:\n");
                     ricercaDispositivi();
                     System.out.println();
                     break;
@@ -78,7 +73,7 @@ public class Menu {
                     System.out.println();
                     break;
                 default:
-                    System.out.println("Scelta non valida");
+                    System.out.println("Scelta non valida\n");
             }
         } while (scelta != 0);
         scanner.close();
@@ -90,7 +85,7 @@ public class Menu {
 
         do {
 
-            System.out.println("Menu:");
+            System.out.println("Carrello:\n");
             System.out.println("0. Esci");
             System.out.println("1. Aggiungi articoli");
             System.out.println("2. Rimuovi articoli");
@@ -104,47 +99,50 @@ public class Menu {
                     System.out.println("Uscita in corso...");
                     break;
                 case 1:
-                    System.out.println("Elenco dei dispositivi disponibili:");
+                    System.out.println("Elenco dei dispositivi disponibili:\n");
                     for (int i = 0; i < magazzino.listaDispositivi.size(); i++) {
                         System.out.println((i + 1) + ". " + magazzino.listaDispositivi.get(i).checkTipo() + ": " + magazzino.listaDispositivi.get(i).checkProduttore() + " " + magazzino.listaDispositivi.get(i).checkModello() +
                                 " - Prezzo: " + magazzino.listaDispositivi.get(i).checkPrezzoVendita() + "€");
                     }
-                    System.out.println("Seleziona il dispositivo da aggiungere:");
+                    System.out.println("\nSeleziona il dispositivo da aggiungere:");
                     int indiceAggiunzione = scanner.nextInt();
                     if (indiceAggiunzione > 0 && indiceAggiunzione <= magazzino.listaDispositivi.size()) {
                         carrello.aggiungiProdotto(magazzino.listaDispositivi.get(indiceAggiunzione - 1));
-                        System.out.println("Dispositivo aggiunto al carrello.");
+                        magazzino.listaDispositivi.remove(magazzino.listaDispositivi.get(indiceAggiunzione -1));
+                        System.out.println("Dispositivo aggiunto al carrello.\n");
                     } else {
-                        System.out.println("Selezione non valida.");
+                        System.out.println("Selezione non valida.\n");
                     }
                     break;
                 case 2:
-                    System.out.println("Elenco articoli nel carrello:");
-                    carrello.visualizzaCarrello();
-                    System.out.println("Cosa vuoi rimuovere?");
+                    System.out.println("Elenco articoli nel carrello:\n");
+                    for (int i = 0; i < carrello.articoli.size(); i++) {
+                        System.out.println((i + 1) + ". " + carrello.articoli.get(i).checkTipo() + ": " + carrello.articoli.get(i).checkProduttore() + " " + carrello.articoli.get(i).checkModello() +
+                                " - Prezzo: " + carrello.articoli.get(i).checkPrezzoVendita() + "€");
+                    }
+                    System.out.println("\nCosa vuoi rimuovere?");
                     int indiceRimozione = scanner.nextInt();
-                    if (indiceRimozione > 0 && indiceRimozione <= carrello.visualizzaCarrello().size()) {
+                    if (indiceRimozione > 0 && indiceRimozione <= carrello.articoli.size()) {
+                        magazzino.listaDispositivi.add(carrello.articoli.get(indiceRimozione - 1));
                         carrello.rimuoviProdotto(carrello.articoli.remove(indiceRimozione - 1));
-                        System.out.println("Dispositivo rimosso dal carrello.");
+                        System.out.println("Dispositivo rimosso dal carrello.\n");
                     } else {
-                        System.out.println("Selezione non valida.");
+                        System.out.println("Selezione non valida.\n");
                     }
                     break;
                 case 3:
                     carrello.visualizzaCarrello();
                     break;
                 case 4:
-                    System.out.println();
                     System.out.println("Il prezzo medio di ogni articolo è di: " + carrello.calcoloMediaPrezzi() + "€");
                     System.out.println();
                     break;
                 case 5:
-                    System.out.println();
                     carrello.finalizzaOperazioneVendita();
                     System.out.println();
                     break;
                 default:
-                    System.out.println("Scelta non valida.");
+                    System.out.println("Scelta non valida.\n");
                     break;
             }
         } while (scelta != 0);
@@ -152,13 +150,13 @@ public class Menu {
 
     public void ricercaDispositivi() {
 
-        Integer scelta;
+        int scelta;
         Tipo tipoDispositivo;
         double prezzoVendita;
         double prezzoAcquisto;
 
         do {
-            System.out.println("Selezionare criterio di ricerca:");
+            System.out.println("Selezionare criterio di ricerca:\n");
             System.out.println("0. Esci");
             System.out.println("1. Ricerca per tipo");
             System.out.println("2. Ricerca per produttore");
@@ -172,7 +170,6 @@ public class Menu {
             switch (scelta) {
                 case 0:
                     System.out.println("Uscita in corso...");
-                    System.out.println();
                     break;
                 case 1:
                     System.out.println("Inserire tipologia dispositivo:");

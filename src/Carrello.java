@@ -16,19 +16,23 @@ public class Carrello {
         return articoli;
     }
 
-    public void rimuoviProdotto(ArticoliElettronici articolo) {
+    public ArrayList<ArticoliElettronici> rimuoviProdotto(ArticoliElettronici articolo) {
         articoli.remove(articolo);
+        return articoli;
     }
 
-    public ArrayList<ArticoliElettronici> visualizzaCarrello() {
-        System.out.println("Carrello:");
+    public void visualizzaCarrello() {
+        System.out.println("Carrello:\n");
         int indice = 1;
         for (ArticoliElettronici articolo : articoli) {
-            System.out.print(indice + ". ");
-            System.out.println(articolo);
-            indice++;
+            if (articoli.isEmpty()) {
+                System.out.println("Il carrello è vuoto.");
+            } else {
+                System.out.print(indice + ". ");
+                System.out.println(articolo);
+                indice++;
+            }
         }
-        return articoli;
     }
 
     public Double calcoloMediaPrezzi() {
@@ -38,25 +42,23 @@ public class Carrello {
         }
         return result / articoli.size();
     }
-//TODO sistemare loop e mettere condizione affinchè si esca dal metodo se la lista articoli è vuota.
-    public void finalizzaOperazioneVendita () {
+
+    public void finalizzaOperazioneVendita() {
         Double result = 0.0;
         for (ArticoliElettronici articolo : articoli) {
             result += articolo.checkPrezzoVendita();
         }
-        Integer finalizza;
-        do {
-            System.out.println("Totale: " + result + "€");
-            System.out.println("Procedere all'Acquisto? \n 1. Si. \n 2. No.");
-            finalizza = scanner.nextInt();
-            if (finalizza == 1) {
-                System.out.print("Grazie per l'acquisto.");
-                articoli.clear();
-            } else if (finalizza == 2) {
-                System.out.println("Annullo operazione d'acquisto.");
-            } else if (finalizza <= 0 || finalizza >= 3) {
-                System.out.println("Comando non valido.");
-            }
-        } while (finalizza != 1 || finalizza != 2 );
+        int finalizza;
+        System.out.println("Totale: " + result + "€");
+        System.out.println("Procedere all'Acquisto? \n 1. Si. \n 2. No.");
+        finalizza = scanner.nextInt();
+        if (finalizza == 1) {
+            System.out.print("Grazie per l'acquisto.");
+            articoli.clear();
+        } else if (finalizza == 2) {
+            System.out.println("Annullo operazione d'acquisto.");
+        } else {
+            System.out.println("Comando non valido.");
+        }
     }
 }
