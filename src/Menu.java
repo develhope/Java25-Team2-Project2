@@ -138,7 +138,7 @@ public class Menu {
                     System.out.println();
                     break;
                 case 5:
-                    carrello.finalizzaOperazioneVendita();
+                    System.out.println(carrello.finalizzaOperazioneVendita());
                     System.out.println();
                     break;
                 default:

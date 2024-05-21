@@ -23,17 +23,17 @@ public class Carrello {
 
     public void visualizzaCarrello() {
         System.out.println("Carrello:\n");
+        if (articoli.isEmpty()) {
+            System.out.println("Il carrello è vuoto.\n");
+        }
         int indice = 1;
         for (ArticoliElettronici articolo : articoli) {
-            if (articoli.isEmpty()) {
-                System.out.println("Il carrello è vuoto.");
-            } else {
-                System.out.print(indice + ". ");
-                System.out.println(articolo);
-                indice++;
-            }
+            System.out.print(indice + ". ");
+            System.out.println(articolo);
+            indice++;
         }
     }
+
 
     public Double calcoloMediaPrezzi() {
         Double result = 0.0;
@@ -43,7 +43,10 @@ public class Carrello {
         return result / articoli.size();
     }
 
-    public void finalizzaOperazioneVendita() {
+    public String finalizzaOperazioneVendita() {
+        if (articoli.isEmpty()) {
+            return "Il carrello è vuoto.";
+        }
         Double result = 0.0;
         for (ArticoliElettronici articolo : articoli) {
             result += articolo.checkPrezzoVendita();
@@ -52,13 +55,15 @@ public class Carrello {
         System.out.println("Totale: " + result + "€");
         System.out.println("Procedere all'Acquisto? \n 1. Si. \n 2. No.");
         finalizza = scanner.nextInt();
-        if (finalizza == 1) {
-            System.out.print("Grazie per l'acquisto.");
+        if (finalizza == 1) {;
             articoli.clear();
+            return "Grazie per l'acquisto.";
         } else if (finalizza == 2) {
-            System.out.println("Annullo operazione d'acquisto.");
+            return "Annullo operazione d'acquisto.";
         } else {
             System.out.println("Comando non valido.");
+            finalizzaOperazioneVendita();
         }
+        return "Arrivederci.";
     }
 }
