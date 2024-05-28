@@ -64,7 +64,7 @@ public class Smartphone implements ArticoliElettronici {
 
     @Override
     public String toString() {
-        return "Dispositivo: " + tipo +
+        return tipo +
                 ", produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
                 ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
