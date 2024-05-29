@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Carrello {
 
-    public ArrayList<ArticoliElettronici> articoli;
+    public ArrayList<Prodotti> articoli;
     Scanner scanner;
 
     public Carrello() {
@@ -11,12 +11,12 @@ public class Carrello {
         scanner = new Scanner(System.in);
     }
 
-    public ArrayList<ArticoliElettronici> aggiungiProdotto(ArticoliElettronici articolo) {
+    public ArrayList<Prodotti> aggiungiProdotto(Prodotti articolo) {
         articoli.add(articolo);
         return articoli;
     }
 
-    public ArrayList<ArticoliElettronici> rimuoviProdotto(ArticoliElettronici articolo) {
+    public ArrayList<Prodotti> rimuoviProdotto(Prodotti articolo) {
         articoli.remove(articolo);
         return articoli;
     }
@@ -27,18 +27,17 @@ public class Carrello {
             System.out.println("Il carrello è vuoto.\n");
         }
         int indice = 1;
-        for (ArticoliElettronici articolo : articoli) {
+        for (Prodotti articolo : articoli) {
             System.out.print(indice + ". ");
             System.out.println(articolo);
             indice++;
         }
     }
 
-
     public Double calcoloMediaPrezzi() {
         Double result = 0.0;
-        for (ArticoliElettronici articolo : articoli) {
-            result += articolo.checkPrezzoVendita();
+        for (Prodotti articolo : articoli) {
+            result += articolo.getPrezzoVendita();
         }
         return result / articoli.size();
     }
@@ -48,8 +47,8 @@ public class Carrello {
             return "Il carrello è vuoto.";
         }
         Double result = 0.0;
-        for (ArticoliElettronici articolo : articoli) {
-            result += articolo.checkPrezzoVendita();
+        for (Prodotti articolo : articoli) {
+            result += articolo.getPrezzoVendita();
         }
         int finalizza;
         System.out.println("Totale: " + result + "€");

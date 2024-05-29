@@ -1,77 +1,27 @@
-public class Smartphone implements ArticoliElettronici {
+public class Smartphone extends Prodotti {
 
-    private Tipo tipo;
-    private String produttore;
-    private String modello;
-    private String descrizioneDispositivo;
-    private Double dimensioneDisplay;
-    private Integer dimensioneSpazioArchiviazione;
-    private Double prezzoAcquisto;
-    private Double prezzoVendita;
-    private Integer idDispositivo;
-
-    public Smartphone(Tipo tipo, String produttore, String modello, String descrizioneDispositivo, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione, Double prezzoAcquisto, Double prezzoVendita, Integer idDispositivo) {
-        this.tipo = tipo;
-        this.produttore = produttore;
-        this.modello = modello;
-        this.descrizioneDispositivo = descrizioneDispositivo;
+    public Smartphone(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzoAcquisto, Double prezzoVendita, Integer idProdotto, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
+        super(tipo, produttore, modello, descrizioneDispositivo, prezzoAcquisto, prezzoVendita, idProdotto);
         this.dimensioneDisplay = dimensioneDisplay;
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
-        this.prezzoAcquisto = prezzoAcquisto;
-        this.prezzoVendita = prezzoVendita;
-        this.idDispositivo = idDispositivo;
     }
 
-    @Override
-    public Tipo checkTipo() {
-        return tipo;
-    }
+    private Double dimensioneDisplay;
+    private Integer dimensioneSpazioArchiviazione;
 
-    @Override
-    public String checkProduttore() {
-        return produttore;
-    }
-
-    @Override
-    public String checkModello() {
-        return modello;
-    }
-
-    @Override
-    public Double checkDimensioniDisplay() {
+    public Double getDimensioneDisplay() {
         return dimensioneDisplay;
     }
 
-    @Override
-    public Integer checkDimensioneSpazioArchiviazione() {
+    public void setDimensioneDisplay(Double dimensioneDisplay) {
+        this.dimensioneDisplay = dimensioneDisplay;
+    }
+
+    public Integer getDimensioneSpazioArchiviazione() {
         return dimensioneSpazioArchiviazione;
     }
 
-    @Override
-    public Double checkPrezzoAcquisto() {
-        return prezzoAcquisto;
-    }
-
-    @Override
-    public Double checkPrezzoVendita() {
-        return prezzoVendita;
-    }
-
-    @Override
-    public Integer checkID() {
-        return idDispositivo;
-    }
-
-    @Override
-    public String toString() {
-        return tipo +
-                ", produttore='" + produttore + '\'' +
-                ", modello='" + modello + '\'' +
-                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
-                ", dimensioneDisplay=" + dimensioneDisplay +
-                ", dimensioneSpazioArchiviazione=" + dimensioneSpazioArchiviazione +
-                ", prezzoAcquisto=" + prezzoAcquisto +
-                ", prezzoVendita=" + prezzoVendita +
-                ", idDispositivo=" + idDispositivo;
+    public void setDimensioneSpazioArchiviazione(Integer dimensioneSpazioArchiviazione) {
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
 }
