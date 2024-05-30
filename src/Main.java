@@ -13,4 +13,4 @@ public class Main {
         Tablet tablet3 = new Tablet("Tablet", "Lenovo", "Thinkpad", "Tablet economico", 149.99, 199.99, 5672893, 10.1, 64);
     }
 
-}
+} //ciao
