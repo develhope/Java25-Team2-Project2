@@ -24,4 +24,5 @@ public class Smartphone extends Prodotti {
     public void setDimensioneSpazioArchiviazione(Integer dimensioneSpazioArchiviazione) {
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
+
 }

@@ -73,6 +73,15 @@ public abstract class Prodotti {
     public void setIdProdotto(Integer idProdotto) {
         this.idProdotto = idProdotto;
     }
+
+    @Override
+    public String toString() {
+        return "tipo='" + tipo + '\'' +
+                ", produttore='" + produttore + '\'' +
+                ", modello='" + modello + '\'' +
+                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
+                ", prezzoAcquisto=" + prezzoAcquisto +
+                ", prezzoVendita=" + prezzoVendita +
+                ", idProdotto=" + idProdotto;
+    }
 }
-
-
