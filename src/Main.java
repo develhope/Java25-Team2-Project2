@@ -11,6 +11,14 @@ public class Main {
         Tablet tablet1 = new Tablet("Tablet", "Samsung", "Galaxy S7", "è bello", 200.00 , 249.99, 65307503, 10.1, 64);
         Tablet tablet2 = new Tablet("Tablet", "Apple", "Ipad Air", "Tablet elegante e professionale", 649.99, 719.99, 93784, 9.8, 512);
         Tablet tablet3 = new Tablet("Tablet", "Lenovo", "Thinkpad", "Tablet economico", 149.99, 199.99, 5672893, 10.1, 64);
+
+    Carrello carrello1 = new Carrello();
+    carrello1.aggiungiProdotto(smartphone1);
+    carrello1.aggiungiProdotto(smartphone2);
+
+    carrello1.finalizzaOperazioneVendita();
+
     }
 
-} //ciao
+
+}

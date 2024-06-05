@@ -2,15 +2,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+//todo rimuovere scanner.
 public class Magazzino {
 
+    //todo la lista è quella del carrello. aggiungiamo il carrello al magazzino e visualizziamo gli articoli tramite esso.
     ArrayList<Prodotti> listaDispositivi = new ArrayList<>();
     Scanner scanner;
 
+    //todo nome, informazioni, descrizioni ed almeno una città.
     public Magazzino() {
-
     }
 
+    //todo questi metodi vanno in prodotti.
     public void ricercaTipoDispositivo(String tipoDispositivo) {
 
         boolean elementoPresente = false;

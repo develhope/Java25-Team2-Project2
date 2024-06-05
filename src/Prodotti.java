@@ -1,5 +1,6 @@
 public abstract class Prodotti {
 
+    //todo lasciare solo un prezzo, descrizione, tipoProdotto, modello?, facciamo l'enum per tipo.
     private String tipo;
     private String produttore;
     private String modello;
@@ -73,6 +74,8 @@ public abstract class Prodotti {
     public void setIdProdotto(Integer idProdotto) {
         this.idProdotto = idProdotto;
     }
+
+    //todo metodo per stampare i dettagli.
 }
 
 
