@@ -1,5 +1,6 @@
 public abstract class Prodotti {
 
+    //todo lasciare solo un prezzo, descrizione, tipoProdotto, modello?, facciamo l'enum per tipo.
     private String tipo;
     private String produttore;
     private String modello;
@@ -74,14 +75,7 @@ public abstract class Prodotti {
         this.idProdotto = idProdotto;
     }
 
-    @Override
-    public String toString() {
-        return "tipo='" + tipo + '\'' +
-                ", produttore='" + produttore + '\'' +
-                ", modello='" + modello + '\'' +
-                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
-                ", prezzoAcquisto=" + prezzoAcquisto +
-                ", prezzoVendita=" + prezzoVendita +
-                ", idProdotto=" + idProdotto;
-    }
+    //todo metodo per stampare i dettagli.
 }
+
+
