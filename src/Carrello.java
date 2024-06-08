@@ -1,31 +1,48 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
-//todo togliere scanner.
 public class Carrello {
 
+    public String nomeCarrello;
+    public Double totaleCarrello;
     public ArrayList<Prodotti> articoli;
-    Scanner scanner;
 
     //todo inserire come field totale carrello, nome carrello, lista prodotti.
-    public Carrello() {
-        articoli = new ArrayList<>();
-        scanner = new Scanner(System.in);
+    public Carrello(String nomeCarrello) {
+        this.nomeCarrello = nomeCarrello;
+        this.articoli = new ArrayList<>();
     }
 
-    //todo ogni volta che aggiungiamo si somma l'articolo al totale. un field come contatore
+    public String getNomeCarrello() {
+        return nomeCarrello;
+    }
+
+    public void setNomeCarrello(String nomeCarrello) {
+        this.nomeCarrello = nomeCarrello;
+    }
+
     public ArrayList<Prodotti> aggiungiProdotto(Prodotti articolo) {
         articoli.add(articolo);
-        //todo sommare articolo e aggiornare il totale.
+        totaleCarrello += articolo.getPrezzoVendita();
+        visualizzaCarrello();
+        System.out.println("Totale: " + totaleCarrello);
         return articoli;
     }
 
-    //todo sottrarre il costo anche.
     public ArrayList<Prodotti> rimuoviProdotto(Prodotti articolo) {
-        articoli.remove(articolo);
+        for (int i = 0; i < articoli.size(); i++) {
+            if (articoli.contains(articolo)) {
+                articoli.remove(articolo);
+                totaleCarrello -= articolo.getPrezzoVendita();
+                visualizzaCarrello();
+                System.out.println("Totale: " + totaleCarrello);
+                return articoli;
+            }
+        }
+        System.out.println("Articolo non presente nel carrello.");
         return articoli;
     }
 
+    //todo Sostituire il System.out.Println di articolo con il metodo stampaDettagli nella classe Prodotti.
     public void visualizzaCarrello() {
         System.out.println("\nCarrello:\n");
         if (articoli.isEmpty()) {
@@ -39,26 +56,25 @@ public class Carrello {
         }
     }
 
-    public Double calcoloMediaPrezzi() {
-        Double result = 0.0;
+    public void calcoloMediaPrezzi() {
+        Double sum = 0.0;
+        System.out.print("\nIl prezzo medio di ogni articolo è di: ");
         for (Prodotti articolo : articoli) {
-            result += articolo.getPrezzoVendita();
+            sum += articolo.getPrezzoVendita();
         }
-        return result / articoli.size();
+        Double result = sum / articoli.size();
+        System.out.println(result);
     }
 
     public void finalizzaOperazioneVendita() {
-    //todo eliminare
-    public String finalizzaOperazioneVendita() {
+        //todo eliminare
         if (articoli.isEmpty()) {
             System.out.println("\nIl carrello è vuoto.");
+        } else {
+            visualizzaCarrello();
+            System.out.println("\nTotale: " + totaleCarrello + "€");
+            articoli.clear();
+            System.out.println("Grazie per l'acquisto.");
         }
-        Double result = 0.0;
-        for (Prodotti articolo : articoli) {
-            result += articolo.getPrezzoVendita();
-        }
-        System.out.println("\nTotale: " + result + "€");
-        articoli.clear();
-        System.out.println("Grazie per l'acquisto.");
     }
 }

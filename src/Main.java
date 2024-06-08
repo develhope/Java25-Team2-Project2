@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        Carrello carrello = new Carrello();
+        Carrello carrello1 = new Carrello("Carrello 1");
 
         Smartphone smartphone1 = new Smartphone("Smartphone", "Apple", "Iphone12", "Ciao", 899.99, 999.99, 827451719, 7.0, 128);
         Smartphone smartphone2 = new Smartphone("Smartphone", "Samsung", "Galaxy A71", "è un buon telefono", 399.99, 499.99, 65736593, 6.3, 128);
@@ -14,20 +14,13 @@ public class Main {
         Tablet tablet2 = new Tablet("Tablet", "Apple", "Ipad Air", "Tablet elegante e professionale", 649.99, 719.99, 93784, 9.8, 512);
         Tablet tablet3 = new Tablet("Tablet", "Lenovo", "Thinkpad", "Tablet economico", 149.99, 199.99, 5672893, 10.1, 64);
 
-        carrello.visualizzaCarrello();
+        carrello1.aggiungiProdotto(smartphone1);
+        carrello1.aggiungiProdotto(smartphone2);
 
-        carrello.aggiungiProdotto(smartphone1);
-        carrello.aggiungiProdotto(tablet3);
-        carrello.aggiungiProdotto(notebook1);
+        carrello1.rimuoviProdotto(smartphone2);
 
-        carrello.visualizzaCarrello();
+        carrello1.calcoloMediaPrezzi();
 
-        carrello.rimuoviProdotto(smartphone1);
-
-        carrello.visualizzaCarrello();
-
-        carrello.finalizzaOperazioneVendita();
-
-        carrello.visualizzaCarrello();
+        carrello1.finalizzaOperazioneVendita();
     }
 }
