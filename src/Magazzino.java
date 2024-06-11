@@ -1,109 +1,57 @@
-import java.util.ArrayList;
-import java.util.Objects;
-
-//todo rimuovere scanner.
 public class Magazzino {
+    public String nomeMagazzino;
+    public String informazioniMagazzino;
+    public String descrizioneMagazzino;
+    public String cittaMagazzino;
 
-    //todo la lista è quella del carrello. aggiungiamo il carrello al magazzino e visualizziamo gli articoli tramite esso.
-    ArrayList<Prodotti> listaDispositivi = new ArrayList<>();
-
-    //todo nome, informazioni, descrizioni ed almeno una città.
-    public Magazzino() {
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino) {
+        this.nomeMagazzino = nomeMagazzino;
+        this.informazioniMagazzino = informazioniMagazzino;
+        this.descrizioneMagazzino = descrizioneMagazzino;
+        this.cittaMagazzino = cittaMagazzino;
     }
 
-    //todo questi metodi vanno in prodotti.
-    public void ricercaTipoDispositivo(String tipoDispositivo) {
-
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : listaDispositivi) {
-            if (tipoDispositivo.equals(articolo.getTipo())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Dispositivo non trovato");
-        }
+    public String getNomeMagazzino() {
+        return nomeMagazzino;
     }
 
-    public void ricercaProduttore(String nomeProduttore) {
-
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : listaDispositivi) {
-            if (nomeProduttore.equals(articolo.getProduttore())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-        if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
-        }
+    public void setNomeMagazzino(String nomeMagazzino) {
+        this.nomeMagazzino = nomeMagazzino;
     }
 
-    public void ricercaModello(String nomeModello) {
-
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : listaDispositivi) {
-            if (nomeModello.equals(articolo.getModello())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
-        }
+    public String getInformazioniMagazzino() {
+        return informazioniMagazzino;
     }
 
-    public void ricercaPrezzoVendita (Double prezzoVendita) {
-
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : listaDispositivi) {
-            if (Objects.equals(prezzoVendita, articolo.getPrezzoVendita())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo del costo di: " + prezzoVendita + "€");
-        }
+    public void setInformazioniMagazzino(String informazioniMagazzino) {
+        this.informazioniMagazzino = informazioniMagazzino;
     }
 
-    public void ricercaPrezzoAcquisto (Double prezzoAcquisto) {
-
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : listaDispositivi) {
-            if (Objects.equals(prezzoAcquisto, articolo.getPrezzoAcquisto())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo con un prezzo d'acquisto di: " + prezzoAcquisto + "€");
-        }
+    public String getDescrizioneMagazzino() {
+        return descrizioneMagazzino;
     }
 
-    public void ricercaRangePrezzo (Double min, Double max) {
+    public void setDescrizioneMagazzino(String descrizioneMagazzino) {
+        this.descrizioneMagazzino = descrizioneMagazzino;
+    }
 
-        boolean elementoPresente = false;
+    public String getCittaMagazzino() {
+        return cittaMagazzino;
+    }
 
-        for (Prodotti articolo : listaDispositivi) {
-            if (min <= articolo.getPrezzoVendita() && max >= articolo.getPrezzoVendita()) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
+    public void setCittaMagazzino(String cittaMagazzino) {
+        this.cittaMagazzino = cittaMagazzino;
+    }
 
-        if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
-        }
+
+    public void visualizzaDettagliMagazzino() {
+        System.out.println("Il magazzino " + getNomeMagazzino() + " si trova a: " + getCittaMagazzino());
+        System.out.println("Questo magazzino " + getDescrizioneMagazzino() + " e " + getInformazioniMagazzino());
+    }
+
+
+    public void listaArticoliCarrello(String nomeCarrello) {
+        Carrello carrello = new Carrello(nomeCarrello);
+        System.out.println(carrello.articoli);
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Prodotti {
 
     //todo lasciare solo un prezzo, descrizione, tipoProdotto, modello?, facciamo l'enum per tipo.
@@ -76,6 +78,95 @@ public abstract class Prodotti {
     }
 
     //todo metodo per stampare i dettagli.
+
+
+    public void ricercaTipoDispositivo(String tipoDispositivo, String nomeCarrello) {
+
+        Carrello carrello = new Carrello(nomeCarrello);
+        boolean elementoPresente = false;
+
+        for (Prodotti articolo : carrello.articoli) {
+            if (tipoDispositivo.equals(articolo.getTipo())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Dispositivo non trovato");
+        }
+    }
+
+
+    public void ricercaProduttore(String nomeProduttore, String nomeCarrello) {
+
+        Carrello carrello = new Carrello(nomeCarrello);
+        boolean elementoPresente = false;
+
+        for (Prodotti articolo : carrello.articoli) {
+            if (nomeProduttore.equals(articolo.getProduttore())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
+        }
+    }
+
+
+    public void ricercaModello(String nomeModello, String nomeCarrello) {
+
+        Carrello carrello = new Carrello(nomeCarrello);
+        boolean elementoPresente = false;
+
+        for (Prodotti articolo : carrello.articoli) {
+            if (nomeModello.equals(articolo.getModello())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Modello non disponibile");
+        }
+    }
+
+
+    public void ricercaPrezzo (Double prezzo, String nomeCarrello) {
+
+        Carrello carrello = new Carrello(nomeCarrello);
+        boolean elementoPresente = false;
+
+        for (Prodotti articolo : carrello.articoli) {
+            if (Objects.equals(prezzo, articolo.getPrezzoVendita())) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo del costo di: " + prezzo + "€");
+        }
+    }
+
+
+    public void ricercaRangePrezzo (Double min, Double max, String nomeCarrello) {
+
+        Carrello carrello = new Carrello(nomeCarrello);
+        boolean elementoPresente = false;
+
+        for (Prodotti articolo : carrello.articoli) {
+            if (min <= articolo.getPrezzoVendita() && max >= articolo.getPrezzoVendita()) {
+                System.out.println(articolo);
+                elementoPresente = true;
+            }
+        }
+
+        if (!elementoPresente) {
+            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
+        }
+    }
 }
 
 
