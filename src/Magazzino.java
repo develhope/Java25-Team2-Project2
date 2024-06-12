@@ -3,12 +3,15 @@ public class Magazzino {
     public String informazioniMagazzino;
     public String descrizioneMagazzino;
     public String cittaMagazzino;
+    public Carrello carrello;
 
-    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino) {
+    // todo aggiungere carrello al costruttore
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello) {
         this.nomeMagazzino = nomeMagazzino;
         this.informazioniMagazzino = informazioniMagazzino;
         this.descrizioneMagazzino = descrizioneMagazzino;
         this.cittaMagazzino = cittaMagazzino;
+        this.carrello = carrello;
     }
 
     public String getNomeMagazzino() {
@@ -43,15 +46,16 @@ public class Magazzino {
         this.cittaMagazzino = cittaMagazzino;
     }
 
+    public Carrello getCarrello() {
+        return carrello;
+    }
+
+    public void setCarrello(Carrello carrello) {
+        this.carrello = carrello;
+    }
 
     public void visualizzaDettagliMagazzino() {
         System.out.println("Il magazzino " + getNomeMagazzino() + " si trova a: " + getCittaMagazzino());
         System.out.println("Questo magazzino " + getDescrizioneMagazzino() + " e " + getInformazioniMagazzino());
-    }
-
-
-    public void listaArticoliCarrello(String nomeCarrello) {
-        Carrello carrello = new Carrello(nomeCarrello);
-        System.out.println(carrello.articoli);
     }
 }
