@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Carrello {
 
     public String nomeCarrello;
-    public Double totaleCarrello;
+    public Double totaleCarrello = 0.0;
     public ArrayList<Prodotti> articoli;
 
     //todo inserire come field totale carrello, nome carrello, lista prodotti.

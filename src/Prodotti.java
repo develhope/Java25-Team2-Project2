@@ -80,7 +80,7 @@ public abstract class Prodotti {
     //todo metodo per stampare i dettagli.
 
 
-    public void ricercaTipoDispositivo(String tipoDispositivo, String nomeCarrello) {
+    /*public void ricercaTipoDispositivo(String tipoDispositivo, String nomeCarrello) {
 
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
@@ -166,7 +166,7 @@ public abstract class Prodotti {
         if (!elementoPresente) {
             System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
         }
-    }
+    }*/
 }
 
 
