@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         Carrello carrello1 = new Carrello("Carrello 1");
+        Magazzino magazzino = new Magazzino("Euronics","è grande", "Contiene articoli elettronici", "Palermo");
 
         Smartphone smartphone1 = new Smartphone("Smartphone", "Apple", "Iphone12", "Ciao", 899.99, 999.99, 827451719, 7.0, 128);
         Smartphone smartphone2 = new Smartphone("Smartphone", "Samsung", "Galaxy A71", "è un buon telefono", 399.99, 499.99, 65736593, 6.3, 128);
@@ -21,6 +22,6 @@ public class Main {
 
         carrello1.calcoloMediaPrezzi();
 
-        carrello1.finalizzaOperazioneVendita();
+        carrello1.visualizzaCarrello();
     }
 }
