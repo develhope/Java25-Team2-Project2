@@ -4,7 +4,7 @@ public class Magazzino {
     public String descrizioneMagazzino;
     public String cittaMagazzino;
 
-    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino) {
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello1) {
         this.nomeMagazzino = nomeMagazzino;
         this.informazioniMagazzino = informazioniMagazzino;
         this.descrizioneMagazzino = descrizioneMagazzino;
