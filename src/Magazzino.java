@@ -5,7 +5,7 @@ public class Magazzino {
     public String cittaMagazzino;
     public Carrello carrello;
 
-    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello1) {
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello) {
         this.nomeMagazzino = nomeMagazzino;
         this.informazioniMagazzino = informazioniMagazzino;
         this.descrizioneMagazzino = descrizioneMagazzino;
@@ -13,6 +13,7 @@ public class Magazzino {
         this.carrello = carrello;
     }
 
+    //todo metodi addCarrello e removeCarrelo maybe?
     public String getNomeMagazzino() {
         return nomeMagazzino;
     }
@@ -59,8 +60,9 @@ public class Magazzino {
     }
 
 
-    public void listaArticoliCarrello(String nomeCarrello) {
-        Carrello carrello = new Carrello(nomeCarrello);
-        System.out.println(carrello.articoli);
+    public void listaArticoliCarrello() {
+        for (Prodotti articolo : this.carrello.getArticoli()) {
+            articolo.stampaDettagli();
+        }
     }
 }

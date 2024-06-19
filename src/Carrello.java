@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Carrello {
 
-    public String nomeCarrello;
-    public Double totaleCarrello = 0.0;
-    public ArrayList<Prodotti> articoli;
+    private String nomeCarrello;
+    private Double totaleCarrello = 0.0;
+    private ArrayList<Prodotti> articoli;
 
     public Carrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
@@ -18,6 +18,14 @@ public class Carrello {
 
     public void setNomeCarrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
+    }
+
+    public ArrayList<Prodotti> getArticoli() {
+        return articoli;
+    }
+
+    public void setArticoli(ArrayList<Prodotti> articoli) {
+        this.articoli = articoli;
     }
 
     public void aggiungiProdotto(Prodotti articolo) {

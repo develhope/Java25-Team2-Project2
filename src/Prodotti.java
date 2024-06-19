@@ -87,7 +87,7 @@ public abstract class Prodotti {
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
 
-        for (Prodotti articolo : carrello.articoli) {
+        for (Prodotti articolo : carrello.getArticoli()) {
             if (tipoDispositivo.equals(articolo.getTipo())) {
                 System.out.println(articolo);
                 elementoPresente = true;
@@ -105,7 +105,7 @@ public abstract class Prodotti {
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
 
-        for (Prodotti articolo : carrello.articoli) {
+        for (Prodotti articolo : carrello.getArticoli()) {
             if (nomeProduttore.equals(articolo.getProduttore())) {
                 System.out.println(articolo);
                 elementoPresente = true;
@@ -122,7 +122,7 @@ public abstract class Prodotti {
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
 
-        for (Prodotti articolo : carrello.articoli) {
+        for (Prodotti articolo : carrello.getArticoli()) {
             if (nomeModello.equals(articolo.getModello())) {
                 System.out.println(articolo);
                 elementoPresente = true;
@@ -140,7 +140,7 @@ public abstract class Prodotti {
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
 
-        for (Prodotti articolo : carrello.articoli) {
+        for (Prodotti articolo : carrello.getArticoli()) {
             if (Objects.equals(prezzo, articolo.getPrezzoVendita())) {
                 System.out.println(articolo);
                 elementoPresente = true;
@@ -158,7 +158,7 @@ public abstract class Prodotti {
         Carrello carrello = new Carrello(nomeCarrello);
         boolean elementoPresente = false;
 
-        for (Prodotti articolo : carrello.articoli) {
+        for (Prodotti articolo : carrello.getArticoli()) {
             if (min <= articolo.getPrezzoVendita() && max >= articolo.getPrezzoVendita()) {
                 System.out.println(articolo);
                 elementoPresente = true;
