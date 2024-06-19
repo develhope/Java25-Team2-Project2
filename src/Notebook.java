@@ -1,13 +1,15 @@
-public class Notebook extends Prodotti{
+public class Notebook extends Prodotti {
 
-    public Notebook(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzoAcquisto, Double prezzoVendita, Integer idProdotto, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
-        super(tipo, produttore, modello, descrizioneDispositivo, prezzoAcquisto, prezzoVendita, idProdotto);
-        this.dimensioneDisplay = dimensioneDisplay;
-        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
-    }
-
+    private String modello;
     private Double dimensioneDisplay;
     private Integer dimensioneSpazioArchiviazione;
+
+    public Notebook(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzo, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
+        super(tipo, produttore, descrizioneDispositivo, prezzo);
+        this.dimensioneDisplay = dimensioneDisplay;
+        this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
+        this.modello = modello;
+    }
 
     public Double getDimensioneDisplay() {
         return dimensioneDisplay;
@@ -23,5 +25,11 @@ public class Notebook extends Prodotti{
 
     public void setDimensioneSpazioArchiviazione(Integer dimensioneSpazioArchiviazione) {
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
+    }
+
+    @Override
+    public void stampaDettagli () {
+        super.stampaDettagli();
+        System.out.println(" Modello: " + modello + " Dimensione Display: " + dimensioneDisplay + " Dimensione Spazio Archiviazione: " + dimensioneSpazioArchiviazione);
     }
 }
