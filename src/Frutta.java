@@ -1,11 +1,11 @@
 public class Frutta extends Prodotti{
 
-    private String varietaFrutta;
+    private String tipologiaFrutta;
     private Boolean biologica;
 
-    public Frutta(String tipo, String produttore, String varietaFrutta, String descrizione, Double prezzo, Boolean biologica) {
+    public Frutta(String tipo, String produttore, String tipologiaFrutta, String descrizione, Double prezzo, Boolean biologica) {
         super(tipo, produttore, descrizione, prezzo);
-        this.varietaFrutta = varietaFrutta;
+        this.tipologiaFrutta = tipologiaFrutta;
         this.biologica = biologica;
     }
 
@@ -17,18 +17,18 @@ public class Frutta extends Prodotti{
         this.biologica = biologica;
     }
 
-    public String getVarietaFrutta() {
-        return varietaFrutta;
+    public String getTipologiaFrutta() {
+        return tipologiaFrutta;
     }
 
-    public void setVarietaFrutta(String varietaFrutta) {
-        this.varietaFrutta = varietaFrutta;
+    public void setTipologiaFrutta(String tipologiaFrutta) {
+        this.tipologiaFrutta = tipologiaFrutta;
     }
 
     @Override
     public void stampaDettagli () {
         super.stampaDettagli();
-        System.out.println("Varietà frutta: " + varietaFrutta + " Biologica: " + biologica);
+        System.out.println("Varietà frutta: " + tipologiaFrutta + " Biologica: " + biologica);
     }
 }
 

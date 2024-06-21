@@ -26,7 +26,7 @@ public class Main {
         Prodotti tablet3 = new Tablet(EnumProdottiElettronici.TABLET.getDescrizione(), "Lenovo", "Thinkpad", "Tablet economico", 149.99, 10.1, 64);
 
         //Prodotti alimentari
-        Prodotti frutta1 = new Frutta(EnumProdottiAlimentari.FRUTTA.getDescrizione(), "Melinda", "Smith", "è una mela verde", 0.30, true);
+        Prodotti frutta1 = new Frutta(EnumProdottiAlimentari.FRUTTA.getDescrizione(), "Melinda", "Mela", "è una mela Smith", 0.30, true);
 
 
 
