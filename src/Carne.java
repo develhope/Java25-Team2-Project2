@@ -30,4 +30,5 @@ public class Carne extends Prodotti{
         super.stampaDettagli();
         System.out.println("Varietà Carne: " + varietaCarne + " Proveniente d'Allevamento: " + provenienzaAllevamento);
     }
+
 }

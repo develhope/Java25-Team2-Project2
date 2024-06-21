@@ -30,4 +30,5 @@ public class Pesce extends Prodotti{
         super.stampaDettagli();
         System.out.println("Varietà Pesce: " + varietaPesce + " Provenienza Pesce: " + provenienzaPesce);
     }
+
 }

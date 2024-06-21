@@ -50,15 +50,28 @@ public class Carrello {
         for (Prodotti prodotti : articoli) {
             prodotti.stampaDettagli();
         }
+        calcolaTotale();
     }
 
     public void calcoloMediaPrezzi() {
-        Double totaleCarrello = 0.0;
         System.out.print("\nIl prezzo medio di ogni articolo è di: ");
         for (Prodotti articolo : articoli) {
             totaleCarrello += articolo.getPrezzo();
         }
         Double result = totaleCarrello / articoli.size();
         System.out.println(result);
+    }
+
+    public void calcolaTotale () {
+        for (Prodotti articolo : articoli) {
+            this.totaleCarrello += articolo.getPrezzo();
+        }
+        System.out.println("Totale " + nomeCarrello + ": " + totaleCarrello);
+    }
+
+    public void FinalizzaOperazione () {
+        visualizzaCarrello();
+        calcolaTotale();
+        articoli.clear();
     }
 }

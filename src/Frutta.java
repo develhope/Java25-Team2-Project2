@@ -30,5 +30,6 @@ public class Frutta extends Prodotti{
         super.stampaDettagli();
         System.out.println("Varietà frutta: " + tipologiaFrutta + " Biologica: " + biologica);
     }
+
 }
 

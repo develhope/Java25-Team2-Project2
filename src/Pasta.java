@@ -40,4 +40,5 @@ public class Pasta extends Prodotti{
         super.stampaDettagli();
         System.out.println("Formato: " + formatoPasta + " Tempo di cottura: " + tempoDiCottura + " Integrale: " + integrale);
     }
+
 }

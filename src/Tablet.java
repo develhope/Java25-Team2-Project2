@@ -32,4 +32,5 @@ public class Tablet extends Prodotti{
         super.stampaDettagli();
         System.out.println(" Modello: " + modello + " Dimensione Display: " + dimensioneDisplay + " Dimensione Spazio Archiviazione: " + dimensioneSpazioArchiviazione);
     }
+
 }
