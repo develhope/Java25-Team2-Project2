@@ -29,7 +29,8 @@ public class Carrello {
     }
 
     public void visualizzaCarrello() {
-        System.out.println(articoli);
+        for (Prodotti articolo : this.articoli)
+        System.out.println(articolo);
     }
 
 
