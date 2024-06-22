@@ -3,6 +3,7 @@ public class Main {
 
 
         Carrello carrello1 = new Carrello("Carrello 1");
+        Carrello carrello2 = new Carrello("Carrello 2");
         Magazzino magazzino1 = new Magazzino("Magazzino Prodotti Elettronici di Roma", "Il magazzino contiene prodotti elettronici di tipo Smartphone, Notebook e Tablet.", "Il magazzino si trova nella zona industiale di Roma ed ha una grandezza di 1000m x 1000m", "Roma, Italia", carrello1);
 
         Smartphone smartphone1 = new Smartphone("Smartphone", "Apple", "Iphone12", "Ciao", 899.99, 999.99, 827451719, 7.0, 128);
@@ -19,6 +20,9 @@ public class Main {
         carrello1.aggiungiProdotto(smartphone1);
         carrello1.aggiungiProdotto(smartphone2);
 
+        carrello2.aggiungiProdotto(tablet2);
+        carrello2.aggiungiProdotto(notebook3);
+
         carrello1.rimuoviProdotto(smartphone2);
 
         carrello1.calcoloMediaPrezzi();
@@ -27,5 +31,6 @@ public class Main {
 
         magazzino1.visualizzaDettagliMagazzino();
         magazzino1.listaArticoliCarrello();
+
     }
 }
