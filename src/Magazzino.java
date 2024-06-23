@@ -1,19 +1,15 @@
-import java.util.ArrayList;
+public class Magazzino {
+    public String nomeMagazzino;
+    public String informazioniMagazzino;
+    public String descrizioneMagazzino;
+    public String cittaMagazzino;
+    public Carrello carrello;
 
-public class Magazzino{
-    private String nomeMagazzino;
-    private String ubicazione;
-    private String descrizioneMagazzino;
-    private String cittaMagazzino;
-    private Carrello carrello;
-    private ArrayList<Prodotti> articoliMagazzino;
-
-    public Magazzino(String nomeMagazzino, String ubicazione, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello) {
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello1) {
         this.nomeMagazzino = nomeMagazzino;
-        this.ubicazione = ubicazione;
+        this.informazioniMagazzino = informazioniMagazzino;
         this.descrizioneMagazzino = descrizioneMagazzino;
         this.cittaMagazzino = cittaMagazzino;
-        this.articoliMagazzino = new ArrayList<>();
         this.carrello = carrello;
     }
 
@@ -25,12 +21,12 @@ public class Magazzino{
         this.nomeMagazzino = nomeMagazzino;
     }
 
-    public String getUbicazione() {
-        return ubicazione;
+    public String getInformazioniMagazzino() {
+        return informazioniMagazzino;
     }
 
-    public void setUbicazione(String ubicazione) {
-        this.ubicazione = ubicazione;
+    public void setInformazioniMagazzino(String informazioniMagazzino) {
+        this.informazioniMagazzino = informazioniMagazzino;
     }
 
     public String getDescrizioneMagazzino() {
@@ -57,23 +53,14 @@ public class Magazzino{
         this.carrello = carrello;
     }
 
-    public void aggiungiArticoloMagazzino (Prodotti articolo) {
-        articoliMagazzino.add(articolo);
-    }
-
-    public void rimuoviArticoloMagazzino (Prodotti articolo) {
-        articoliMagazzino.remove(articolo);
-    }
-
     public void visualizzaDettagliMagazzino() {
-        System.out.println("Il magazzino " + getNomeMagazzino() + " si trova a: " + getCittaMagazzino() + " in " + getUbicazione());
-        System.out.println("Questo magazzino " + getDescrizioneMagazzino());
+        System.out.println("Il magazzino " + getNomeMagazzino() + " si trova a: " + getCittaMagazzino());
+        System.out.println("Questo magazzino " + getDescrizioneMagazzino() + " e " + getInformazioniMagazzino());
     }
 
-    public void listaArticoliMagazzino() {
-        System.out.println(nomeMagazzino);
-        for (Prodotti articoli : articoliMagazzino) {
-            articoli.stampaDettagli();
-        }
+
+    public void listaArticoliCarrello(String nomeCarrello) {
+        Carrello carrello = new Carrello(nomeCarrello);
+        System.out.println(carrello.articoli);
     }
 }

@@ -2,10 +2,9 @@ import java.util.ArrayList;
 
 public class Carrello {
 
-    private String nomeCarrello;
-    private Double totaleCarrello;
-    private ArrayList<Prodotti> articoli;
-    private Magazzino magazzino;
+    public String nomeCarrello;
+    public Double totaleCarrello = 0.0;
+    public ArrayList<Prodotti> articoli;
 
     public Carrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
@@ -21,22 +20,6 @@ public class Carrello {
         this.nomeCarrello = nomeCarrello;
     }
 
-    public Double getTotaleCarrello() {
-        return totaleCarrello;
-    }
-
-    public void setTotaleCarrello(Double totaleCarrello) {
-        this.totaleCarrello = totaleCarrello;
-    }
-
-    public ArrayList<Prodotti> getArticoli() {
-        return articoli;
-    }
-
-    public void setArticoli(ArrayList<Prodotti> articoli) {
-        this.articoli = articoli;
-    }
-
     public void aggiungiProdotto(Prodotti articolo) {
         articoli.add(articolo);
     }
@@ -46,32 +29,18 @@ public class Carrello {
     }
 
     public void visualizzaCarrello() {
-        System.out.println(nomeCarrello);
-        for (Prodotti prodotti : articoli) {
-            prodotti.stampaDettagli();
-        }
-        calcolaTotale();
+        System.out.println(articoli);
     }
 
+
     public void calcoloMediaPrezzi() {
+        Double totaleCarrello = 0.0;
         System.out.print("\nIl prezzo medio di ogni articolo è di: ");
         for (Prodotti articolo : articoli) {
-            totaleCarrello += articolo.getPrezzo();
+            totaleCarrello += articolo.getPrezzoVendita();
         }
         Double result = totaleCarrello / articoli.size();
         System.out.println(result);
     }
 
-    public void calcolaTotale () {
-        for (Prodotti articolo : articoli) {
-            this.totaleCarrello += articolo.getPrezzo();
-        }
-        System.out.println("Totale " + nomeCarrello + ": " + totaleCarrello);
-    }
-
-    public void FinalizzaOperazione () {
-        visualizzaCarrello();
-        calcolaTotale();
-        articoli.clear();
-    }
 }

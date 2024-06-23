@@ -1,15 +1,13 @@
 public class Tablet extends Prodotti{
 
-    private String modello;
-    private Double dimensioneDisplay;
-    private Integer dimensioneSpazioArchiviazione;
-
-    public Tablet(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzo, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
-        super(tipo, produttore, descrizioneDispositivo, prezzo);
+    public Tablet(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzoAcquisto, Double prezzoVendita, Integer idProdotto, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
+        super(tipo, produttore, modello, descrizioneDispositivo, prezzoAcquisto, prezzoVendita, idProdotto);
         this.dimensioneDisplay = dimensioneDisplay;
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
-        this.modello = modello;
     }
+
+    private Double dimensioneDisplay;
+    private Integer dimensioneSpazioArchiviazione;
 
     public Double getDimensioneDisplay() {
         return dimensioneDisplay;
@@ -26,11 +24,4 @@ public class Tablet extends Prodotti{
     public void setDimensioneSpazioArchiviazione(Integer dimensioneSpazioArchiviazione) {
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
-
-    @Override
-    public void stampaDettagli () {
-        super.stampaDettagli();
-        System.out.println(" Modello: " + modello + " Dimensione Display: " + dimensioneDisplay + " Dimensione Spazio Archiviazione: " + dimensioneSpazioArchiviazione);
-    }
-
 }
