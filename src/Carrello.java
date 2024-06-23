@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Carrello {
 
     public String nomeCarrello;
-    public Double totaleCarrello = 0.0;
+    public Double totaleCarrello;
     public ArrayList<Prodotti> articoli;
 
     public Carrello(String nomeCarrello) {
@@ -20,6 +20,22 @@ public class Carrello {
         this.nomeCarrello = nomeCarrello;
     }
 
+    public Double getTotaleCarrello() {
+        return totaleCarrello;
+    }
+
+    public void setTotaleCarrello(Double totaleCarrello) {
+        this.totaleCarrello = totaleCarrello;
+    }
+
+    public ArrayList<Prodotti> getArticoli() {
+        return articoli;
+    }
+
+    public void setArticoli(ArrayList<Prodotti> articoli) {
+        this.articoli = articoli;
+    }
+
     public void aggiungiProdotto(Prodotti articolo) {
         articoli.add(articolo);
     }
@@ -29,18 +45,27 @@ public class Carrello {
     }
 
     public void visualizzaCarrello() {
-        System.out.println(articoli);
+        for (Prodotti prodotto : articoli) {
+            System.out.println(prodotto);
+        }
     }
 
-
-    public void calcoloMediaPrezzi() {
-        Double totaleCarrello = 0.0;
-        System.out.print("\nIl prezzo medio di ogni articolo è di: ");
+    public Double calcolaTotale () {
+        this.totaleCarrello = 0.0;
         for (Prodotti articolo : articoli) {
             totaleCarrello += articolo.getPrezzoVendita();
         }
+        return totaleCarrello;
+    }
+
+    public void calcoloMediaPrezzi() {
+        calcolaTotale();
         Double result = totaleCarrello / articoli.size();
         System.out.println(result);
     }
 
+    public void stampaDettagli () {
+        System.out.println("Carrello: " + getNomeCarrello() + " Totale: " + getTotaleCarrello() + " Articoli nel Carrello: ");
+        visualizzaCarrello();
+    }
 }

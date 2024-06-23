@@ -23,6 +23,6 @@ public class Main {
 
         carrello1.calcoloMediaPrezzi();
 
-        carrello1.visualizzaCarrello();
+        carrello1.stampaDettagli();
     }
 }
