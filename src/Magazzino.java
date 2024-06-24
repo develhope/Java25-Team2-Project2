@@ -1,9 +1,9 @@
 public class Magazzino {
-    public String nomeMagazzino;
-    public String informazioniMagazzino;
-    public String descrizioneMagazzino;
-    public String cittaMagazzino;
-    public Carrello carrello;
+    private String nomeMagazzino;
+    private String informazioniMagazzino;
+    private String descrizioneMagazzino;
+    private String cittaMagazzino;
+    private Carrello carrello;
 
     public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello) {
         this.nomeMagazzino = nomeMagazzino;
