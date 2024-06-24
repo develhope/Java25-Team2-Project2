@@ -32,5 +32,7 @@ public class Main {
         magazzino1.visualizzaDettagliMagazzino();
         magazzino1.listaArticoliCarrello();
 
+        magazzino1.setCarrello(carrello2);
+        magazzino1.listaArticoliCarrello();
     }
 }
