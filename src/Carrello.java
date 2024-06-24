@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Carrello {
 
-    public String nomeCarrello;
-    public Double totaleCarrello;
-    public ArrayList<Prodotti> articoli;
+    private String nomeCarrello;
+    private Double totaleCarrello;
+    private ArrayList<Prodotti> articoli;
 
     public Carrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
