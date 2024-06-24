@@ -3,7 +3,8 @@ public class Main {
 
 
         Carrello carrello1 = new Carrello("Carrello 1");
-        Magazzino magazzino1 = new Magazzino("Magazzino 1", "bo", "bo2", "Roma", carrello1);
+        Carrello carrello2 = new Carrello("Carrello 2");
+        Magazzino magazzino1 = new Magazzino("Magazzino Prodotti Elettronici di Roma", "Il magazzino contiene prodotti elettronici di tipo Smartphone, Notebook e Tablet.", "Il magazzino si trova nella zona industiale di Roma ed ha una grandezza di 1000m x 1000m", "Roma, Italia", carrello1);
 
         Smartphone smartphone1 = new Smartphone("Smartphone", "Apple", "Iphone12", "Ciao", 899.99, 999.99, 827451719, 7.0, 128);
         Smartphone smartphone2 = new Smartphone("Smartphone", "Samsung", "Galaxy A71", "è un buon telefono", 399.99, 499.99, 65736593, 6.3, 128);
@@ -19,10 +20,20 @@ public class Main {
         carrello1.aggiungiProdotto(smartphone1);
         carrello1.aggiungiProdotto(smartphone2);
 
+        carrello2.aggiungiProdotto(tablet2);
+        carrello2.aggiungiProdotto(notebook3);
+
         carrello1.rimuoviProdotto(smartphone2);
 
         carrello1.calcoloMediaPrezzi();
 
+        carrello1.visualizzaCarrello();
+
+        magazzino1.visualizzaDettagliMagazzino();
+        magazzino1.listaArticoliCarrello();
+
+        magazzino1.setCarrello(carrello2);
+        magazzino1.listaArticoliCarrello();
         carrello1.stampaDettagli();
     }
 }

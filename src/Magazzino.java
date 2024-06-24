@@ -1,11 +1,11 @@
 public class Magazzino {
-    public String nomeMagazzino;
-    public String informazioniMagazzino;
-    public String descrizioneMagazzino;
-    public String cittaMagazzino;
-    public Carrello carrello;
+    private String nomeMagazzino;
+    private String informazioniMagazzino;
+    private String descrizioneMagazzino;
+    private String cittaMagazzino;
+    private Carrello carrello;
 
-    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello1) {
+    public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino, Carrello carrello) {
         this.nomeMagazzino = nomeMagazzino;
         this.informazioniMagazzino = informazioniMagazzino;
         this.descrizioneMagazzino = descrizioneMagazzino;
@@ -54,13 +54,15 @@ public class Magazzino {
     }
 
     public void visualizzaDettagliMagazzino() {
-        System.out.println("Il magazzino " + getNomeMagazzino() + " si trova a: " + getCittaMagazzino());
-        System.out.println("Questo magazzino " + getDescrizioneMagazzino() + " e " + getInformazioniMagazzino());
+        System.out.println("Il magazzino dal nome: \"" + getNomeMagazzino() + "\", si trova a: " + getCittaMagazzino());
+        System.out.println("Descrizione magazzino: " + getDescrizioneMagazzino());
+        System.out.println("Informazioni: " + getInformazioniMagazzino());
     }
 
 
-    public void listaArticoliCarrello(String nomeCarrello) {
-        Carrello carrello = new Carrello(nomeCarrello);
-        System.out.println(carrello.articoli);
+    public void listaArticoliCarrello() {
+        for (Prodotti articolo : this.carrello.articoli) {
+            System.out.println(articolo);
+        }
     }
 }
