@@ -67,7 +67,7 @@ public class Magazzino {
         }
     }
 
-    public void ricercaTipoDispositivo(String tipoDispositivo, String nomeCarrello) {
+    public void ricercaTipoDispositivo(EnumProdottiElettronici tipoDispositivo, String nomeCarrello) {
 
         boolean elementoPresente = false;
 
