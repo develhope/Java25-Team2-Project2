@@ -38,22 +38,24 @@ public class Carrello {
 
     public void aggiungiProdotto(Prodotti articolo) {
         articoli.add(articolo);
+        calcolaTotale();
     }
 
     public void rimuoviProdotto(Prodotti articolo) {
         articoli.remove(articolo);
+        calcolaTotale();
     }
 
     public void visualizzaCarrello() {
         for (Prodotti prodotto : articoli) {
-            System.out.println(prodotto);
+            System.out.println(prodotto.stampaDettagliProdotto());
         }
     }
 
     public Double calcolaTotale () {
         this.totaleCarrello = 0.0;
         for (Prodotti articolo : articoli) {
-            totaleCarrello += articolo.getPrezzoVendita();
+            totaleCarrello += articolo.getPrezzo();
         }
         return totaleCarrello;
     }
@@ -61,10 +63,10 @@ public class Carrello {
     public void calcoloMediaPrezzi() {
         calcolaTotale();
         Double result = totaleCarrello / articoli.size();
-        System.out.println(result);
+        System.out.println("Il prezzo medio di ogni articolo è di: " + result);
     }
 
-    public void stampaDettagli () {
+    public void stampaDettagliCarrello () {
         System.out.println("Carrello: " + getNomeCarrello() + " Totale: " + getTotaleCarrello() + " Articoli nel Carrello: ");
         visualizzaCarrello();
     }

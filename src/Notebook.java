@@ -1,13 +1,34 @@
 public class Notebook extends Prodotti{
 
-    public Notebook(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzoAcquisto, Double prezzoVendita, Integer idProdotto, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
-        super(tipo, produttore, modello, descrizioneDispositivo, prezzoAcquisto, prezzoVendita, idProdotto);
+    private String produttore;
+    private String modello;
+    private Double dimensioneDisplay;
+    private Integer dimensioneSpazioArchiviazione;
+
+
+    public Notebook(EnumProdottiElettronici tipo, String produttore, String modello, Double prezzo, String descrizione, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
+        super(tipo, descrizione, prezzo);
+        this.produttore = produttore;
+        this.modello = modello;
         this.dimensioneDisplay = dimensioneDisplay;
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
     }
 
-    private Double dimensioneDisplay;
-    private Integer dimensioneSpazioArchiviazione;
+    public String getProduttore() {
+        return produttore;
+    }
+
+    public void setProduttore(String produttore) {
+        this.produttore = produttore;
+    }
+
+    public String getModello() {
+        return modello;
+    }
+
+    public void setModello(String modello) {
+        this.modello = modello;
+    }
 
     public Double getDimensioneDisplay() {
         return dimensioneDisplay;
@@ -23,5 +44,9 @@ public class Notebook extends Prodotti{
 
     public void setDimensioneSpazioArchiviazione(Integer dimensioneSpazioArchiviazione) {
         this.dimensioneSpazioArchiviazione = dimensioneSpazioArchiviazione;
+    }
+
+    public String stampaDettagliProdotto() {
+        return super.stampaDettagliProdotto() + "\nProduttore: " + getProduttore() + "\nModello: " + getModello() + "\nDimensione display: " + getDimensioneDisplay() + "\nDimensione spazio archiviazione: " + getDimensioneSpazioArchiviazione() + '\n';
     }
 }

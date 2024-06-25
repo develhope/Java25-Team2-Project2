@@ -1,186 +1,48 @@
 import java.util.Objects;
 
-public abstract class Prodotti {
+public abstract class Prodotti implements InterfacciaProdotti {
 
-    //todo lasciare solo un prezzo, descrizione, tipoProdotto, modello?, facciamo l'enum per tipo.
-    private String tipo;
-    private String produttore;
-    private String modello;
-    private String descrizioneDispositivo;
-    private Double prezzoAcquisto;
-    private Double prezzoVendita;
-    private Integer idProdotto;
+    private EnumProdottiElettronici tipo;
+    private String descrizione;
+    private Double prezzo;
 
-    public Prodotti(String tipo, String produttore, String modello, String descrizioneDispositivo, Double prezzoAcquisto, Double prezzoVendita, Integer idProdotto) {
+    public Prodotti(EnumProdottiElettronici tipo, String descrizione, Double prezzo) {
         this.tipo = tipo;
-        this.produttore = produttore;
-        this.modello = modello;
-        this.descrizioneDispositivo = descrizioneDispositivo;
-        this.prezzoAcquisto = prezzoAcquisto;
-        this.prezzoVendita = prezzoVendita;
-        this.idProdotto = idProdotto;
+        this.descrizione = descrizione;
+        this.prezzo = prezzo;
     }
 
-    public String getTipo() {
+    public EnumProdottiElettronici getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(EnumProdottiElettronici tipo) {
         this.tipo = tipo;
     }
 
-    public String getProduttore() {
-        return produttore;
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    public void setProduttore(String produttore) {
-        this.produttore = produttore;
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
-    public String getModello() {
-        return modello;
+    public Double getPrezzo() {
+        return prezzo;
     }
 
-    public void setModello(String modello) {
-        this.modello = modello;
+    public void setPrezzo(Double prezzo) {
+        this.prezzo = prezzo;
     }
 
-    public String getDescrizioneDispositivo() {
-        return descrizioneDispositivo;
-    }
+    public abstract String getProduttore();
 
-    public void setDescrizioneDispositivo(String descrizioneDispositivo) {
-        this.descrizioneDispositivo = descrizioneDispositivo;
-    }
+    public abstract String getModello();
 
-    public Double getPrezzoAcquisto() {
-        return prezzoAcquisto;
-    }
-
-    public void setPrezzoAcquisto(Double prezzoAcquisto) {
-        this.prezzoAcquisto = prezzoAcquisto;
-    }
-
-    public Double getPrezzoVendita() {
-        return prezzoVendita;
-    }
-
-    public void setPrezzoVendita(Double prezzoVendita) {
-        this.prezzoVendita = prezzoVendita;
-    }
-
-    public Integer getIdProdotto() {
-        return idProdotto;
-    }
-
-    public void setIdProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
-    }
-
-    //TODO metodo per stampare i dettagli.
-    public void stampaDettagli() {
-
-    }
-
-    public void ricercaTipoDispositivo(String tipoDispositivo, String nomeCarrello) {
-
-        Carrello carrello = new Carrello(nomeCarrello);
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : carrello.articoli) {
-            if (tipoDispositivo.equals(articolo.getTipo())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Dispositivo non trovato");
-        }
-    }
-
-
-    public void ricercaProduttore(String nomeProduttore, String nomeCarrello) {
-
-        Carrello carrello = new Carrello(nomeCarrello);
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : carrello.articoli) {
-            if (nomeProduttore.equals(articolo.getProduttore())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-        if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
-        }
-    }
-
-
-    public void ricercaModello(String nomeModello, String nomeCarrello) {
-
-        Carrello carrello = new Carrello(nomeCarrello);
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : carrello.articoli) {
-            if (nomeModello.equals(articolo.getModello())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
-        }
-    }
-
-
-    public void ricercaPrezzo (Double prezzo, String nomeCarrello) {
-
-        Carrello carrello = new Carrello(nomeCarrello);
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : carrello.articoli) {
-            if (Objects.equals(prezzo, articolo.getPrezzoVendita())) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo del costo di: " + prezzo + "€");
-        }
-    }
-
-
-    public void ricercaRangePrezzo (Double min, Double max, String nomeCarrello) {
-
-        Carrello carrello = new Carrello(nomeCarrello);
-        boolean elementoPresente = false;
-
-        for (Prodotti articolo : carrello.articoli) {
-            if (min <= articolo.getPrezzoVendita() && max >= articolo.getPrezzoVendita()) {
-                System.out.println(articolo);
-                elementoPresente = true;
-            }
-        }
-
-        if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
-        }
-    }
-
-    //TODO questo metodo toString è solo un esempio.
     @Override
-    public String toString() {
-        return "Prodotti{" +
-                "tipo='" + tipo + '\'' +
-                ", produttore='" + produttore + '\'' +
-                ", modello='" + modello + '\'' +
-                ", descrizioneDispositivo='" + descrizioneDispositivo + '\'' +
-                ", prezzoAcquisto=" + prezzoAcquisto +
-                ", prezzoVendita=" + prezzoVendita +
-                ", idProdotto=" + idProdotto +
-                '}';
+    public String stampaDettagliProdotto() {
+        return "Tipo prodotto: " + getTipo() + "\nPrezzo: " + getPrezzo() + "\nDescrizione: " + getDescrizione();
     }
+
 }
