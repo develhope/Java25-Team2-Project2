@@ -61,22 +61,24 @@ public class Carrello {
     }
 
     public void calcoloMediaPrezzi() {
+        System.out.println("\nCalcolo media in corso...");
         calcolaTotale();
         Double result = totaleCarrello / articoli.size();
-        System.out.println("Il prezzo medio di ogni articolo è di: " + result);
+        System.out.println("Il prezzo medio di ogni articolo è di: " + result + "\n");
     }
 
     public void stampaDettagliCarrello () {
-        System.out.println("Carrello: " + getNomeCarrello() +  "\nArticoli nel Carrello: \n");
+        System.out.println("\nCarrello: \"" + getNomeCarrello() +  "\"\nArticoli nel Carrello: \n");
         visualizzaArticoliCarrello();
         System.out.println("Totale: " + getTotaleCarrello());
     }
 
     public void finalizzaOperazioneVendita () {
-        System.out.println("Totale " + getNomeCarrello() + " = " + getTotaleCarrello());
+        System.out.println("\nRiepilogo Carrello: ");
+        System.out.println("Totale " + getNomeCarrello() + " = " + getTotaleCarrello() + "\n");
         System.out.println("Riassunto acquisto:");
         visualizzaArticoliCarrello();
         articoli.clear();
-        System.out.println("Grazie per l'acquisto.");
+        System.out.println("Grazie per l'acquisto.\n");
     }
 }
