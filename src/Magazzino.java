@@ -8,7 +8,6 @@ public class Magazzino {
     private String descrizioneMagazzino;
     private String cittaMagazzino;
     private HashMap<String, Carrello> listaCarrelli;
-    private Carrello carrello;
 
     public Magazzino(String nomeMagazzino, String informazioniMagazzino, String descrizioneMagazzino, String cittaMagazzino) {
         this.nomeMagazzino = nomeMagazzino;
