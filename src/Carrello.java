@@ -46,7 +46,7 @@ public class Carrello {
         calcolaTotale();
     }
 
-    public void visualizzaCarrello() {
+    private void visualizzaArticoliCarrello() {
         for (Prodotti prodotto : articoli) {
             System.out.println(prodotto.stampaDettagliProdotto());
         }
@@ -67,7 +67,8 @@ public class Carrello {
     }
 
     public void stampaDettagliCarrello () {
-        System.out.println("Carrello: " + getNomeCarrello() + " Totale: " + getTotaleCarrello() + " Articoli nel Carrello: ");
-        visualizzaCarrello();
+        System.out.println("Carrello: " + getNomeCarrello() +  "\nArticoli nel Carrello: \n");
+        visualizzaArticoliCarrello();
+        System.out.println("Totale: " + getTotaleCarrello());
     }
 }

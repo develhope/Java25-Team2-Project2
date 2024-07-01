@@ -1,12 +1,6 @@
 public class Main {
     public static void main(String[] args) {
 
-
-        Carrello carrello1 = new Carrello("Carrello 1");
-        Carrello carrello2 = new Carrello("Carrello 2");
-
-        Magazzino magazzino1 = new Magazzino("Magazzino Prodotti Elettronici di Roma", "Il magazzino contiene prodotti elettronici di tipo Smartphone, Notebook e Tablet.", "Il magazzino si trova nella zona industiale di Roma ed ha una grandezza di 1000m x 1000m", "Roma, Italia", carrello1);
-
         Smartphone smartphone1 = new Smartphone(EnumProdottiElettronici.SMARTPHONE, "Apple", "Iphone12", 999.99, "Smartphone di fascia alta", 6.3, 128);
         Smartphone smartphone2 = new Smartphone(EnumProdottiElettronici.SMARTPHONE, "Samsung", "Galaxy A71", 399.99, "Smartphone di fascia media", 6.8, 128);
         Smartphone smartphone3 = new Smartphone(EnumProdottiElettronici.SMARTPHONE, "LG", "Wing", 524.99, "Può ruotare lo schermo", 6.8, 256);
@@ -18,25 +12,42 @@ public class Main {
         Tablet tablet2 = new Tablet(EnumProdottiElettronici.TABLET, "Apple", "Ipad Air", 719.99, "Tablet di fascia alta", 9.8, 512);
         Tablet tablet3 = new Tablet(EnumProdottiElettronici.TABLET, "Lenovo", "Thinkpad", 199.99, "Tablet di fascia bassa", 10.1, 64);
 
+
+        Carrello carrello1 = new Carrello("Carrello 1");
+        Carrello carrello2 = new Carrello("Carrello 2");
+
         carrello1.aggiungiProdotto(notebook1);
         carrello1.aggiungiProdotto(notebook2);
 
         carrello1.stampaDettagliCarrello();
 
         carrello2.aggiungiProdotto(notebook3);
-        carrello2.aggiungiProdotto(notebook3);
+        carrello2.aggiungiProdotto(tablet2);
 
         carrello1.rimuoviProdotto(notebook2);
 
         carrello1.calcoloMediaPrezzi();
 
-        magazzino1.visualizzaDettagliMagazzino();
-
-        magazzino1.listaArticoliCarrello();
-
-        magazzino1.setCarrello(carrello2);
-        magazzino1.listaArticoliCarrello();
         carrello1.stampaDettagliCarrello();
         carrello2.stampaDettagliCarrello();
+
+        Magazzino magazzino1 = new Magazzino(
+                "Magazzino Prodotti Elettronici di Roma",
+                "Il magazzino contiene prodotti elettronici di tipo Smartphone, Notebook e Tablet.",
+                "Il magazzino si trova nella zona industiale di Roma ed ha una grandezza di 1000m x 1000m",
+                "Roma, Italia");
+
+        magazzino1.visualizzaDettagliMagazzino();
+
+        magazzino1.aggiungiCarrelloAllaLista(carrello1);
+        magazzino1.aggiungiCarrelloAllaLista(carrello2);
+
+        magazzino1.stampaListaCarrelli();
+
+        magazzino1.visualizzaCarrelloConNome("Carrello 2");
+
+        magazzino1.ricercaProduttore("MSI", "Carrello 2");
+        magazzino1.ricercaPrezzo(719.99, "Carrello 2");
+
     }
 }
