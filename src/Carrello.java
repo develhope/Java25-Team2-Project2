@@ -37,11 +37,13 @@ public class Carrello {
     }
 
     public void aggiungiProdotto(Prodotti articolo) {
+        System.out.println("\nAggiunta del prodotto al carrello in corso...\n");
         articoli.add(articolo);
         calcolaTotale();
     }
 
     public void rimuoviProdotto(Prodotti articolo) {
+        System.out.println("\nRimozione del prodotto dal carrello in corso...\n");
         articoli.remove(articolo);
         calcolaTotale();
     }
@@ -70,7 +72,7 @@ public class Carrello {
     public void stampaDettagliCarrello () {
         System.out.println("\nCarrello: \"" + getNomeCarrello() +  "\"\nArticoli nel Carrello: \n");
         visualizzaArticoliCarrello();
-        System.out.println("Totale: " + getTotaleCarrello());
+        System.out.println("Totale: " + getTotaleCarrello() + "\n");
     }
 
     public void finalizzaOperazioneVendita () {

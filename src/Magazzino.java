@@ -87,7 +87,7 @@ public class Magazzino {
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Dispositivo non trovato");
+            System.out.println("Errore: Dispositivo non trovato \n");
         }
     }
 
@@ -101,7 +101,7 @@ public class Magazzino {
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
+            System.out.println("Errore: Modello non disponibile \n");
         }
     }
 
@@ -115,7 +115,7 @@ public class Magazzino {
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Modello non disponibile");
+            System.out.println("Errore: Modello non disponibile \n");
         }
     }
 
@@ -129,7 +129,7 @@ public class Magazzino {
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo del costo di: " + prezzo + "€");
+            System.out.println("Errore: Nessun articolo del costo di: " + prezzo + "€ \n");
         }
     }
 
@@ -143,7 +143,7 @@ public class Magazzino {
             }
         }
         if (!elementoPresente) {
-            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max);
+            System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max + "\n");
         }
     }
 }
