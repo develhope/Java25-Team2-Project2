@@ -73,10 +73,10 @@ public class Carrello {
     }
 
     public void finalizzaOperazioneVendita () {
+        System.out.println("Totale " + getNomeCarrello() + " = " + getTotaleCarrello());
         System.out.println("Riassunto acquisto:");
         visualizzaArticoliCarrello();
         articoli.clear();
         System.out.println("Grazie per l'acquisto.");
-
     }
 }
