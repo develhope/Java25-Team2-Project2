@@ -77,6 +77,7 @@ public class Carrello {
         System.out.println("Riassunto acquisto:");
         visualizzaArticoliCarrello();
         articoli.clear();
+        calcolaTotale();
         System.out.println("Grazie per l'acquisto.");
     }
 }

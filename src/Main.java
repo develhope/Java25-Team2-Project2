@@ -50,5 +50,7 @@ public class Main {
         magazzino1.ricercaPrezzo(719.99, "Carrello 2");
 
         carrello1.finalizzaOperazioneVendita();
+
+        magazzino1.visualizzaCarrelloConNome("Carrello 1");
     }
 }
