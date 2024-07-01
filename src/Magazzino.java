@@ -50,21 +50,24 @@ public class Magazzino {
     }
 
     public void visualizzaDettagliMagazzino() {
+        System.out.println("\nDettagli magazzino: \n");
         System.out.println("Il magazzino dal nome: \"" + getNomeMagazzino() + "\", si trova a: " + getCittaMagazzino());
         System.out.println("Descrizione magazzino: " + getDescrizioneMagazzino());
-        System.out.println("Informazioni: " + getInformazioniMagazzino());
+        System.out.println("Informazioni: " + getInformazioniMagazzino() + "\n");
     }
 
     public void aggiungiCarrelloAllaLista(Carrello carrello) {
         this.listaCarrelli.put(carrello.getNomeCarrello(), carrello);
+        System.out.println("\nIl carrello \"" + carrello.getNomeCarrello() + "\" è stato aggiunto al magazzino \"" + getNomeMagazzino() + "\"\n");
     }
 
     public void rimuoviCarrelloDaLista(Carrello carrello) {
         this.listaCarrelli.remove(carrello.getNomeCarrello());
+        System.out.println("\nIl carrello \"" + carrello.getNomeCarrello() + "\" è stato rimosso dal magazzino \"" + getNomeMagazzino() + "\"\n");
     }
 
     public void stampaListaCarrelli() {
-        System.out.println("Il magazzino \"" + getNomeMagazzino() + "\" contiene i seguenti carrelli:");
+        System.out.println("\nIl magazzino \"" + getNomeMagazzino() + "\" contiene i seguenti carrelli:");
         for(Map.Entry<String, Carrello> carrello: this.listaCarrelli.entrySet()) {
             System.out.println(carrello.getKey());
         }
@@ -75,9 +78,8 @@ public class Magazzino {
     }
 
     public void ricercaTipoDispositivo(EnumProdottiElettronici tipoDispositivo, String nomeCarrello) {
-
         boolean elementoPresente = false;
-
+        System.out.println("\nRicerca per Tipo di Dispositivo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
             if (tipoDispositivo.equals(articolo.getTipo())) {
                 System.out.println(articolo.stampaDettagliProdotto());
@@ -90,9 +92,8 @@ public class Magazzino {
     }
 
     public void ricercaProduttore(String nomeProduttore, String nomeCarrello) {
-
         boolean elementoPresente = false;
-
+        System.out.println("\nRicerca per Produttore in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
             if (nomeProduttore.equals(articolo.getProduttore())) {
                 System.out.println(articolo.stampaDettagliProdotto());
@@ -105,9 +106,8 @@ public class Magazzino {
     }
 
     public void ricercaModello(String nomeModello, String nomeCarrello) {
-
         boolean elementoPresente = false;
-
+        System.out.println("\nRicerca per Modello in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
             if (nomeModello.equals(articolo.getModello())) {
                 System.out.println(articolo.stampaDettagliProdotto());
@@ -120,9 +120,8 @@ public class Magazzino {
     }
 
     public void ricercaPrezzo (Double prezzo, String nomeCarrello) {
-
         boolean elementoPresente = false;
-
+        System.out.println("\nRicerca per Prezzo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
             if (Objects.equals(prezzo, articolo.getPrezzo())) {
                 System.out.println(articolo.stampaDettagliProdotto());
@@ -135,9 +134,8 @@ public class Magazzino {
     }
 
     public void ricercaRangePrezzo (Double min, Double max, String nomeCarrello) {
-
         boolean elementoPresente = false;
-
+        System.out.println("\nRicerca per Range di Prezzo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
             if (min <= articolo.getPrezzo() && max >= articolo.getPrezzo()) {
                 System.out.println(articolo.stampaDettagliProdotto());
