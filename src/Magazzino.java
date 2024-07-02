@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -133,17 +134,21 @@ public class Magazzino {
         }
     }
 
-    public void ricercaRangePrezzo (Double min, Double max, String nomeCarrello) {
+    public void ricercaRangePrezzo (BigDecimal min, BigDecimal max, Carrello nomeCarrello) {
         boolean elementoPresente = false;
         System.out.println("\nRicerca per Range di Prezzo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
-            if (min <= articolo.getPrezzo() && max >= articolo.getPrezzo()) {
+            BigDecimal prezzo = articolo.getPrezzo();
+
+            if (min.compareTo(prezzo) <= 0 && max.compareTo(prezzo) >= 0) {
                 System.out.println(articolo.stampaDettagliProdotto());
                 elementoPresente = true;
             }
         }
+
         if (!elementoPresente) {
             System.out.println("Errore: Nessun articolo presente nel range di prezzo: " + min + " - " + max + "\n");
         }
+
     }
 }

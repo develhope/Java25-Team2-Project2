@@ -1,15 +1,18 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Carrello {
 
     private String nomeCarrello;
-    private Double totaleCarrello;
+    private BigDecimal totaleCarrello;
     private ArrayList<Prodotti> articoli;
+
 
     public Carrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
         this.articoli = new ArrayList<>();
-        this.totaleCarrello = 0.0;
+        this.totaleCarrello = BigDecimal.ZERO;
     }
 
     public String getNomeCarrello() {
@@ -18,14 +21,6 @@ public class Carrello {
 
     public void setNomeCarrello(String nomeCarrello) {
         this.nomeCarrello = nomeCarrello;
-    }
-
-    public Double getTotaleCarrello() {
-        return totaleCarrello;
-    }
-
-    public void setTotaleCarrello(Double totaleCarrello) {
-        this.totaleCarrello = totaleCarrello;
     }
 
     public ArrayList<Prodotti> getArticoli() {
@@ -39,13 +34,13 @@ public class Carrello {
     public void aggiungiProdotto(Prodotti articolo) {
         System.out.println("\nAggiunta del prodotto al carrello in corso...\n");
         articoli.add(articolo);
-        calcolaTotale();
+        this.totaleCarrello = this.totaleCarrello.add(articolo.getPrezzo());
     }
 
     public void rimuoviProdotto(Prodotti articolo) {
         System.out.println("\nRimozione del prodotto dal carrello in corso...\n");
         articoli.remove(articolo);
-        calcolaTotale();
+        this.totaleCarrello = this.totaleCarrello.subtract(articolo.getPrezzo()).setScale(2,RoundingMode.HALF_UP);
     }
 
     private void visualizzaArticoliCarrello() {
@@ -54,34 +49,26 @@ public class Carrello {
         }
     }
 
-    public Double calcolaTotale () {
-        this.totaleCarrello = 0.0;
-        for (Prodotti articolo : articoli) {
-            totaleCarrello += articolo.getPrezzo();
-        }
-        return totaleCarrello;
-    }
 
     public void calcoloMediaPrezzi() {
         System.out.println("\nCalcolo media in corso...");
-        calcolaTotale();
-        Double result = totaleCarrello / articoli.size();
+
+        BigDecimal result = this.totaleCarrello.divide(this.totaleCarrello,articoli.size()).setScale(2, RoundingMode.HALF_UP);
         System.out.println("Il prezzo medio di ogni articolo è di: " + result + "\n");
     }
 
     public void stampaDettagliCarrello () {
         System.out.println("\nCarrello: \"" + getNomeCarrello() +  "\"\nArticoli nel Carrello: \n");
         visualizzaArticoliCarrello();
-        System.out.println("Totale: " + getTotaleCarrello() + "\n");
+        System.out.println("Totale: " + this.totaleCarrello + "\n");
     }
 
     public void finalizzaOperazioneVendita () {
         System.out.println("\nRiepilogo Carrello: ");
-        System.out.println("Totale " + getNomeCarrello() + " = " + getTotaleCarrello() + "\n");
+        System.out.println("Totale " + getNomeCarrello() + " = " + this.totaleCarrello + "\n");
         System.out.println("Riassunto acquisto:");
         visualizzaArticoliCarrello();
         articoli.clear();
-        calcolaTotale();
         System.out.println("Grazie per l'acquisto.\n");
     }
 }

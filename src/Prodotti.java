@@ -1,12 +1,13 @@
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public abstract class Prodotti implements InterfacciaProdotti {
 
     private EnumProdottiElettronici tipo;
     private String descrizione;
-    private Double prezzo;
+    private BigDecimal prezzo;
 
-    public Prodotti(EnumProdottiElettronici tipo, String descrizione, Double prezzo) {
+    public Prodotti(EnumProdottiElettronici tipo, String descrizione, BigDecimal prezzo) {
         this.tipo = tipo;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -28,11 +29,11 @@ public abstract class Prodotti implements InterfacciaProdotti {
         this.descrizione = descrizione;
     }
 
-    public Double getPrezzo() {
+    public BigDecimal getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(Double prezzo) {
+    public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
     }
 

@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class Notebook extends Prodotti{
 
     private String produttore;
@@ -6,7 +8,7 @@ public class Notebook extends Prodotti{
     private Integer dimensioneSpazioArchiviazione;
 
 
-    public Notebook(EnumProdottiElettronici tipo, String produttore, String modello, Double prezzo, String descrizione, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
+    public Notebook(EnumProdottiElettronici tipo, String produttore, String modello, BigDecimal prezzo, String descrizione, Double dimensioneDisplay, Integer dimensioneSpazioArchiviazione) {
         super(tipo, descrizione, prezzo);
         this.produttore = produttore;
         this.modello = modello;
