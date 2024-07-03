@@ -52,8 +52,14 @@ public class Carrello {
 
     public void calcoloMediaPrezzi() {
         System.out.println("\nCalcolo media in corso...");
+        if (totaleCarrello.equals(BigDecimal.ZERO)) {
+            System.out.println("Il numero di articoli è zero, non è possibile calcolare la media.\n");
+            return;
+        }
+        Integer numeroArticoli = articoli.size();
+        // Calcola il prezzo medio
+        BigDecimal result = this.totaleCarrello.divide(BigDecimal.valueOf(numeroArticoli), BigDecimal.ROUND_HALF_UP);
 
-        BigDecimal result = this.totaleCarrello.divide(this.totaleCarrello,articoli.size()).setScale(2, RoundingMode.HALF_UP);
         System.out.println("Il prezzo medio di ogni articolo è di: " + result + "\n");
     }
 
