@@ -49,7 +49,7 @@ public class Main {
         magazzino1.visualizzaCarrelloConNome("Carrello 2");
 
         magazzino1.ricercaProduttore("MSI", "Carrello 2");
-        magazzino1.ricercaPrezzo(719.99, "Carrello 2");
+        magazzino1.ricercaPrezzo(new BigDecimal("719.99"), "Carrello 2");
 
         carrello1.finalizzaOperazioneVendita();
 

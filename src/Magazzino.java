@@ -120,7 +120,7 @@ public class Magazzino {
         }
     }
 
-    public void ricercaPrezzo (Double prezzo, String nomeCarrello) {
+    public void ricercaPrezzo (BigDecimal prezzo, String nomeCarrello) {
         boolean elementoPresente = false;
         System.out.println("\nRicerca per Prezzo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
