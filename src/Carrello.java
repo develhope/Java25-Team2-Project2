@@ -75,6 +75,7 @@ public class Carrello {
         System.out.println("Riassunto acquisto:");
         visualizzaArticoliCarrello();
         articoli.clear();
+        this.totaleCarrello = BigDecimal.ZERO;
         System.out.println("Grazie per l'acquisto.\n");
     }
 }
