@@ -134,7 +134,7 @@ public class Magazzino {
         }
     }
 
-    public void ricercaRangePrezzo (BigDecimal min, BigDecimal max, Carrello nomeCarrello) {
+    public void ricercaRangePrezzo (BigDecimal min, BigDecimal max, String nomeCarrello) {
         boolean elementoPresente = false;
         System.out.println("\nRicerca per Range di Prezzo in corso...\n");
         for (Prodotti articolo : this.listaCarrelli.get(nomeCarrello).getArticoli()) {
